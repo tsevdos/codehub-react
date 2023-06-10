@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      const app = document.getElementById("app");
+      const root = ReactDOM.createRoot(app);
+
+      const Avatar = () => {
+        const [profile, setProfile] = React.useState({
+          id: 10,
+          user: {
+            username: "tsevdos",
+            name: "John Tsevdos",
+            bio: "I really like React and front-end.",
+          },
+        });
+        const changeName = () => {
+          setProfile((profile) => ({
+            ...profile,
+            user: {
+              ...profile.user,
+              name: "New Name",
+            },
+          }));
+        };
+
+        return (
+          <div>
+            <h3>
+              {profile.id} - {profile.user.name} ({profile.user.username})
+            </h3>
+            <p>{profile.user.bio}</p>
+            <button onClick={changeName}>Change name!</button>
+          </div>
+        );
+      };
+
+      root.render(<Avatar />);
+    </script>
+  </body>
+</html>

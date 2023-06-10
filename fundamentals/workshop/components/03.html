@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      const app = document.getElementById("app");
+      const root = ReactDOM.createRoot(app);
+
+      const MyDiv = (props) => {
+        return <div>{props.children}</div>;
+      };
+
+      const element = (
+        <div className="container">
+          <MyDiv>Hello World</MyDiv>
+          <MyDiv>
+            Welcome to Code.Hub
+            <MyDiv>Hi I'm a component</MyDiv>
+          </MyDiv>
+          <MyDiv>
+            <h1>Title</h1>
+            <p>Welcome</p>
+          </MyDiv>
+        </div>
+      );
+
+      root.render(element);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/javascript">
+      const app = document.getElementById("app");
+      const root = ReactDOM.createRoot(app);
+      const element = React.createElement(
+        "div",
+        { className: "container" },
+        React.createElement("div", null, "Div 1"),
+        React.createElement(
+          "div",
+          null,
+          React.createElement("h2", null, "Title"),
+          React.createElement("p", null, "Paragraph inside div 2")
+        )
+      );
+
+      root.render(element);
+      // console.log(element);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      const app = document.getElementById("app");
+      const root = ReactDOM.createRoot(app);
+
+      const data = [
+        {
+          title: "Total",
+          number: 10358,
+          percentage: "+ 3%",
+        },
+        {
+          title: "Direct",
+          number: 8560,
+          percentage: "+ 10%",
+        },
+        {
+          title: "Referral",
+          number: 1798,
+          percentage: "- 1%",
+        },
+      ];
+
+      const Widget = (props) => {
+        return (
+          <div>
+            <h2>{props.title}</h2>
+            <img width="30" height="30" src={props.logo} />
+            {props.data.map((entry) => {
+              return (
+                <div key={entry.title}>
+                  <h3>{entry.title}</h3>
+                  <p>
+                    {entry.number} &nbsp;<span>{entry.percentage}</span>
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        );
+      };
+
+      root.render(
+        <Widget
+          title="Website traffic"
+          logo="https://cdn-icons-png.flaticon.com/512/5610/5610944.png"
+          data={data}
+        />
+      );
+    </script>
+  </body>
+</html>
