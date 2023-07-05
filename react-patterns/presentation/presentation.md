@@ -80,6 +80,14 @@ a “render prop” is simply a prop that takes a function which returns element
 
 # Render props
 
+- code and logic reuse
+- freedom in rendering
+- state and side effects abstraction
+
+---
+
+# Render props
+
 solves the problems a HoC solves
 
 ---
