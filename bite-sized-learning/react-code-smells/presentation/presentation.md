@@ -15,13 +15,11 @@ theme: uncover
 
 - Complex components
 - Component and code duplication
-- Complex JSX
-- Not hanndled state and errors
-- JSX outside the render method
+
+- Not using the "derived state"
+- Unhandled state and errors
 - Components with too many props
 - Prop drilling
-- Not using the "derived state"
-- Unoptimized or over-optimize renders
 
 ---
 
@@ -47,11 +45,11 @@ Feel free to interrupt me for:
 
 - split them in stateful and stateless components
 - create re-usable hooks
-- use contextAPI / global state (later example)
+- use contextAPI / global state (later Code example)
 
 ---
 
-# Example
+# Code example
 
 ---
 
@@ -67,12 +65,12 @@ Feel free to interrupt me for:
 # How to fix code duplication
 
 - seperation of concerns
-- flexible components
+- build flexible / re-usable components
 - re-usable helper functions
 
 ---
 
-# Example
+# Code example
 
 ---
 
@@ -80,11 +78,11 @@ Feel free to interrupt me for:
 
 - easier to undestand code
 - less side effects (useEffects) and state (useState)
-- flexible components
+- cleaner components
 
 ---
 
-# Example
+# Code example
 
 ---
 
@@ -96,21 +94,45 @@ Feel free to interrupt me for:
 
 ---
 
-# Example
+# How to fix unhandled state and errors
+
+- handle all posible errors (especially network errors)
+- handle all state values in JSX
 
 ---
 
-# Use derived state
+# Code example
 
-- eliminates unnecessary re-renders
+---
+
+# Components with too many props
+
+- harder to read and maintain
 - easier to undestand code
 - less side effects (useEffects) and state
 
 ---
 
-# Example
+# How to fix components with too many props
 
-./react-code-smells/src/pages/CodeDuplication/CodeDuplication.jsx
+- buld and compose smaller components
+
+---
+
+# Prop drilling
+
+![height:500px](./assets/prop-drilling.png)
+
+---
+
+# How to fix prop drilling
+
+- react Context API
+- global state (redux, recoil, zustand, jotai, MobX, etc.)
+
+---
+
+# Code example
 
 ---
 

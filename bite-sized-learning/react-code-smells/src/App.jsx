@@ -3,33 +3,28 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { pages } from "./lib/config";
 // pages
 import Home from "./pages/Home/Home";
 import ComplexComponent from "./pages/ComplexComponent/ComplexComponent";
 import CodeDuplication from "./pages/CodeDuplication/CodeDuplication";
 import DerivedState from "./pages/DerivedState/DerivedState";
 import UnhandledStateAndErrors from "./pages/UnhandledStateAndErrors/UnhandledStateAndErrors";
-// import TodoApp from "./pages/ComplexComponent/solution/TodoApp";
-// import UserCard from "./pages/ComplexComponent/exercise/UserCard";
-// import WidgetApp from "./pages/CodeDuplication/solution/WidgetApp";
-// import UserCards from "./pages/CodeDuplication/exercise/UserCards";
-// import TodosWithCategoriesApp from "./pages/DerivedState/solution/TodosWithCategoriesApp";
-// import UserCart from "./pages/DerivedState/exercise/UserCart";
+import TooManyPropsApp from "./pages/TooManyProps/TooManyPropsApp";
+import PropDrillingApp from "./pages/PropDrilling/PropDrillingApp";
 
-const pages = {
-  home: "Home",
-  complexComponent: "Complex component",
-  codeDuplication: "Component and code duplication",
-  derivedState: "Derived state",
-  unhandledStateAndErrors: "Unhandled state and errors",
-};
-
-const { home, complexComponent, codeDuplication, derivedState, unhandledStateAndErrors } = pages;
+const {
+  home,
+  complexComponent,
+  codeDuplication,
+  derivedState,
+  unhandledStateAndErrors,
+  tooManyProps,
+  propDrilling,
+} = pages;
 
 const App = () => {
   const [page, setPage] = useState(home);
-
-  console.log(page);
 
   return (
     <div id="app">
@@ -54,6 +49,12 @@ const App = () => {
                   <NavDropdown.Item onClick={() => setPage(unhandledStateAndErrors)}>
                     {unhandledStateAndErrors}
                   </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setPage(tooManyProps)}>
+                    {tooManyProps}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setPage(propDrilling)}>
+                    {propDrilling}
+                  </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
@@ -67,10 +68,8 @@ const App = () => {
           {page === codeDuplication && <CodeDuplication />}
           {page === derivedState && <DerivedState />}
           {page === unhandledStateAndErrors && <UnhandledStateAndErrors />}
-
-          <h2>Solution</h2>
-
-          <h2>Exercise</h2>
+          {page === tooManyProps && <TooManyPropsApp />}
+          {page === propDrilling && <PropDrillingApp />}
         </Container>
       </main>
       <footer id="footer">
