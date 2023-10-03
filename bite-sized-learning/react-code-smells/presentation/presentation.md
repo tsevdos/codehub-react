@@ -15,7 +15,6 @@ theme: uncover
 
 - Complex components
 - Component and code duplication
-
 - Not using the "derived state"
 - Unhandled state and errors
 - Components with too many props
@@ -44,6 +43,7 @@ Feel free to interrupt me for:
 # How to fix complex components
 
 - split them in stateful and stateless components
+- create flexible and re-usable components
 - create re-usable hooks
 - use contextAPI / global state (later Code example)
 
@@ -65,7 +65,7 @@ Feel free to interrupt me for:
 # How to fix code duplication
 
 - seperation of concerns
-- build flexible / re-usable components
+- build flexible and re-usable components
 - re-usable helper functions
 
 ---
@@ -97,7 +97,7 @@ Feel free to interrupt me for:
 # How to fix unhandled state and errors
 
 - handle all posible errors (especially network errors)
-- handle all state values in JSX
+- handle all state values
 
 ---
 
@@ -108,14 +108,13 @@ Feel free to interrupt me for:
 # Components with too many props
 
 - harder to read and maintain
-- easier to undestand code
-- less side effects (useEffects) and state
+- harder to compose
 
 ---
 
 # How to fix components with too many props
 
-- buld and compose smaller components
+- create and compose smaller components
 
 ---
 
@@ -138,45 +137,12 @@ Feel free to interrupt me for:
 
 # Recap
 
-- what is react
-- core principles
-- JSX
-- components
-
----
-
-# Recap: Core principles
-
-- composition
-- declarative
-- unidirectional dataflow
-- explicit mutations
-
----
-
-# Recap: Basics
-
-- React.createElement
-- JSX
-- virtual DOM
-
----
-
-# Recap: Components
-
-- props
-- state
-- hooks
-- children
-- conditional rendering
-- event handlers
-
----
-
-# Recap: Styling and CSS
-
-- CSS stylesheet
-- Inline styling
+- Complex components
+- Component and code duplication
+- Not using the "derived state"
+- Unhandled state and errors
+- Components with too many props
+- Prop drilling
 
 ---
 

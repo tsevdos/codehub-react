@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 
 const initialTodos = [
@@ -25,6 +26,14 @@ const DerivedState = () => {
   const [toDoInput, setToDoInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("work");
   const [todos, setTodos] = useState(initialTodos);
+  const [workTodos, setWorkTodos] = useState([]);
+  const [homeTodos, setHomeTodos] = useState([]);
+  const [totalTodos, setTotalTodos] = useState(0);
+  const [doneTodos, setDoneTodos] = useState(0);
+  const [totalWorkTodos, setTotalWorkTodos] = useState(0);
+  const [doneWorkTodos, setDoneWorkTodos] = useState(0);
+  const [totalHomeTodos, setTotalHomeTodos] = useState(0);
+  const [doneHomeTodos, setDoneHomeTodos] = useState(0);
 
   const updateCategory = (e) => {
     setSelectedCategory(e.target.value);
@@ -44,15 +53,6 @@ const DerivedState = () => {
     setToDoInput("");
     setTodos([...todos, newToDo]);
   };
-
-  const [workTodos, setWorkTodos] = useState([]);
-  const [homeTodos, setHomeTodos] = useState([]);
-  const [totalTodos, setTotalTodos] = useState(0);
-  const [doneTodos, setDoneTodos] = useState(0);
-  const [totalWorkTodos, setTotalWorkTodos] = useState(0);
-  const [doneWorkTodos, setDoneWorkTodos] = useState(0);
-  const [totalHomeTodos, setTotalHomeTodos] = useState(0);
-  const [doneHomeTodos, setDoneHomeTodos] = useState(0);
 
   useEffect(() => {
     const wTodos = todos.filter(({ category }) => category === "work");
@@ -74,28 +74,23 @@ const DerivedState = () => {
   }, [todos]);
 
   useEffect(() => {
-    const noOfWorkTodos = todos.filter(({ category }) => category === "work").length;
-    setTotalWorkTodos(noOfWorkTodos);
-  }, [todos]);
+    setTotalWorkTodos(workTodos.length);
+  }, [workTodos]);
 
   useEffect(() => {
-    const noOfDoneWorkTodos = todos.filter(
-      ({ category, done }) => category === "work" && done,
-    ).length;
+    const noOfDoneWorkTodos = workTodos.filter(({ done }) => done).length;
     setDoneWorkTodos(noOfDoneWorkTodos);
-  }, [todos]);
+  }, [workTodos]);
 
   useEffect(() => {
-    const noOfHomeTodos = todos.filter(({ category }) => category === "home").length;
+    const noOfHomeTodos = homeTodos.length;
     setTotalHomeTodos(noOfHomeTodos);
-  }, [todos]);
+  }, [homeTodos]);
 
   useEffect(() => {
-    const noOfDoneHomeTodos = todos.filter(
-      ({ category, done }) => category === "home" && done,
-    ).length;
+    const noOfDoneHomeTodos = homeTodos.filter(({ done }) => done).length;
     setDoneHomeTodos(noOfDoneHomeTodos);
-  }, [todos]);
+  }, [homeTodos]);
 
   return (
     <div>

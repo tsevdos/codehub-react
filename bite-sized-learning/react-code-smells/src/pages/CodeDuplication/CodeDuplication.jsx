@@ -57,7 +57,7 @@ const CodeDuplication = () => {
             </div>
           ))
         ) : (
-          <button onClick={fetchErrorData}>Fetch website traffic data</button>
+          <button onClick={fetchErrorData}>Fetch website errors</button>
         )}
       </div>
     </div>
