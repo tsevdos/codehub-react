@@ -1,0 +1,27 @@
+html {
+  background: rgb(43, 48, 53);
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  height: 7vh;
+}
+
+#main {
+  min-height: 86vh;
+  padding: 3rem 0;
+} 
+
+#footer {
+  height: 7vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(43, 48, 53);
+  color:rgb(173, 181, 189)
+}

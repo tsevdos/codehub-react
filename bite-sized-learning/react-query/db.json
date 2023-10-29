@@ -1,0 +1,59 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "user": "tsevdos",
+      "title": "Learn React",
+      "done": false
+    },
+    {
+      "id": 2,
+      "user": "tsevdos",
+      "title": "Go to Code.Hub",
+      "done": true
+    },
+    {
+      "id": 3,
+      "user": "tsevdos",
+      "title": "Go out for a drink",
+      "done": false
+    },
+
+    {
+      "id": 4,
+      "user": "joe",
+      "title": "Learn Query",
+      "done": false
+    },
+    {
+      "id": 5,
+      "user": "joe",
+      "title": "Try TypeScript",
+      "done": true
+    },
+    {
+      "id": 6,
+      "user": "joe",
+      "title": "Get some milk",
+      "done": false
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "JWT": "1234567890",
+      "username": "tsevdos",
+      "name": "John Tsevdos",
+      "admin": true,
+      "imgPath": "https://avatars1.githubusercontent.com/u/175707"
+    },
+    {
+      "id": 2,
+      "JWT": "1234567890",
+      "username": "joe",
+      "name": "Joe Doe",
+      "admin": false,
+      "imgPath": "https://picsum.photos/200.jpg"
+    }
+  ]
+}
