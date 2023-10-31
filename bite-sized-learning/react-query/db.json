@@ -55,5 +55,28 @@
       "admin": false,
       "imgPath": "https://picsum.photos/200.jpg"
     }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "user": "tsevdos",
+      "title": "React is great!",
+      "body": "Body text goes here",
+      "imgPath": "https://picsum.photos/800/300.jpg"
+    },
+    {
+      "id": 2,
+      "user": "tsevdos",
+      "title": "Next.js for SSR",
+      "body": "Body text goes here",
+      "imgPath": "https://picsum.photos/800/300.jpg"
+    },
+    {
+      "id": 3,
+      "user": "joe",
+      "title": "From JavaScript to TypeScript",
+      "body": "Body text goes here",
+      "imgPath": "https://picsum.photos/800/300.jpg"
+    }
   ]
 }

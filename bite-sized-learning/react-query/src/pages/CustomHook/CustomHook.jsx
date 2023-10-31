@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchTodoById } from "../../../lib/api";
+import { fetchTodoById } from "../../lib/api";
 
-const PassingParams = () => {
+const CustomHook = () => {
   const [selectedTodo, setSelectedTodo] = useState("");
   const updateTodo = (e) => {
     setSelectedTodo(e.target.value);
@@ -43,4 +43,4 @@ const PassingParams = () => {
   );
 };
 
-export default PassingParams;
+export default CustomHook;

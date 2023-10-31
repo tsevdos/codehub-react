@@ -9,7 +9,7 @@ const PassingParams = () => {
     setSelectedTodo(e.target.value);
   };
 
-  const fetchTodo = async (id) => {
+  const fetchTodoById = async (id) => {
     setTodosState((state) => ({ ...state, isLoading: true }));
     const response = await fetch(`http://localhost:3001/todos/${id}`);
     const todo = await response.json();
@@ -23,7 +23,7 @@ const PassingParams = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          fetchTodo(selectedTodo);
+          fetchTodoById(selectedTodo);
         }}
       >
         Display Todo: <input type="text" value={selectedTodo} onChange={updateTodo} />

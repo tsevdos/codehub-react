@@ -1,23 +1,12 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { fetchTodoById } from "../../../lib/api";
+import { useFetchTodo } from "./hook";
 
-const PassingParams = () => {
+const CustomHook = () => {
   const [selectedTodo, setSelectedTodo] = useState("");
   const updateTodo = (e) => {
     setSelectedTodo(e.target.value);
   };
-
-  const {
-    isFetching,
-    isSuccess,
-    data: todo,
-    refetch,
-  } = useQuery({
-    queryKey: ["todos", selectedTodo],
-    queryFn: () => fetchTodoById(selectedTodo),
-    enabled: false,
-  });
+  const { isFetching, isSuccess, data: todo, refetch } = useFetchTodo(selectedTodo);
 
   return (
     <div>
@@ -43,4 +32,4 @@ const PassingParams = () => {
   );
 };
 
-export default PassingParams;
+export default CustomHook;

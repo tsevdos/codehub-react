@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchUserById } from "../../../lib/api";
 
-const PassingParams = () => {
-  const [userState, setUserState] = useState({ isLoading: false, user: null });
-  const { isLoading, user } = userState;
-
-  const fetchUserById = async (userID) => {
-    setUserState((state) => ({ ...state, isLoading: true }));
-    const response = await fetch(`http://localhost:3001/user/${userID}`);
-    const user = await response.json();
-    setUserState((state) => ({ ...state, isLoading: false, user }));
-  };
+const CustomHookExercise = () => {
+  const [selectedUser, setSelectedUser] = useState(null);
+  const {
+    isFetching,
+    isSuccess,
+    data: user,
+  } = useQuery({
+    queryKey: ["users", selectedUser],
+    queryFn: () => fetchUserById(selectedUser),
+    enabled: Boolean(selectedUser),
+  });
 
   return (
     <div>
@@ -21,7 +24,7 @@ const PassingParams = () => {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              fetchUserById("1");
+              setSelectedUser("1");
             }}
           >
             tsevdos
@@ -32,15 +35,15 @@ const PassingParams = () => {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              fetchUserById("2");
+              setSelectedUser("2");
             }}
           >
             joe
           </a>
         </li>
       </ul>
-      {isLoading && <p>Loading...</p>}
-      {Boolean(user) && !isLoading && (
+      {isFetching && <p>Loading...</p>}
+      {isSuccess && (
         <div style={{ width: "300px" }}>
           <img alt={`${user.name} photo`} src={user.imgPath} width="300px" height="300px" />
           <h3>
@@ -53,4 +56,4 @@ const PassingParams = () => {
   );
 };
 
-export default PassingParams;
+export default CustomHookExercise;

@@ -8,15 +8,24 @@ import { pages } from "./lib/config";
 import Home from "./pages/Home/Home";
 import BasicGETExample from "./pages/BasicGETExample/BasicGETExample";
 import PassingParams from "./pages/PassingParams/PassingParams";
-// exercises
-// import BasicGETExercise from "./pages/BasicGETExample/exercise/BasicGETExercise";
-// import PassingParamsExercise from "./pages/PassingParams/exercise/PassingParamsExercise";
-
+import CustomHook from "./pages/CustomHook/CustomHook";
+import ParallelQueries from "./pages/ParallelQueries/ParallelQueries";
+import DependentQueries from "./pages/DependentQueries/DependentQueries";
 // solutions
 // import BasicGETExample from "./pages/BasicGETExample/solution/BasicGETExample";
 // import PassingParams from "./pages/PassingParams/solution/PassingParams";
+// import CustomHook from "./pages/CustomHook/solution/CustomHook";
+// import ParallelQueries from "./pages/ParallelQueries/solution/ParallelQueries";
+// import DependentQueries from "./pages/DependentQueries/solution/DependentQueries";
 
-const { home, basicGETExample, passingParams } = pages;
+// exercises
+// import BasicGETExercise from "./pages/BasicGETExample/exercise/BasicGETExercise";
+// import PassingParamsExercise from "./pages/PassingParams/exercise/PassingParamsExercise";
+// import CustomHookExercise from "./pages/CustomHook/exercise/CustomHookExercise";
+// import DependentQueriesExercise from "./pages/DependentQueries/exercise/DependentQueriesExercise";
+
+const { home, basicGETExample, passingParams, customHook, parallelQueries, dependentQueries } =
+  pages;
 
 const App = () => {
   const [page, setPage] = useState(home);
@@ -38,6 +47,15 @@ const App = () => {
                   <NavDropdown.Item onClick={() => setPage(passingParams)}>
                     {passingParams}
                   </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setPage(customHook)}>
+                    {customHook}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setPage(parallelQueries)}>
+                    {parallelQueries}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setPage(dependentQueries)}>
+                    {dependentQueries}
+                  </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
@@ -49,10 +67,15 @@ const App = () => {
           {page === home && <Home />}
           {page === basicGETExample && <BasicGETExample />}
           {page === passingParams && <PassingParams />}
+          {page === customHook && <CustomHook />}
+          {page === parallelQueries && <ParallelQueries />}
+          {page === dependentQueries && <DependentQueries />}
 
           {/* exercises */}
           {/* <BasicGETExercise /> */}
           {/* <PassingParamsExercise /> */}
+          {/* <CustomHookExercise /> */}
+          {/* <DependentQueriesExercise /> */}
         </Container>
       </main>
       <footer id="footer">
