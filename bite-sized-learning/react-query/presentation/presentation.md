@@ -15,7 +15,7 @@ theme: uncover
 
 - Setup
 - Configuration
-- Basic example (GET)
+- useQuery examples (GET requests)
 
 ---
 
@@ -28,19 +28,18 @@ Feel free to interrupt me for:
 
 ---
 
-# React Query features
+# React query features
 
 - Backend agnostic (all you need is a REST API)
 - Auto re-fetching / re-trying
 - Parallel queries
 - Dependent queries
 - Caching (client-side)
-- Mutations API
-- Data Selectors
+- Mutations API (POST, PATCH, DELETE)
 
 ---
 
-# React Query concepts and configuration
+# React query concepts and configuration
 
 - takes time to learn it / get use to it
 - totally worth it
@@ -65,18 +64,42 @@ Feel free to interrupt me for:
 
 # useQuery hook returned values
 
-- status (isLoading, isFetched, isSuccess, isError, etc.)
+- status (isLoading, isSuccess, isError, etc.)
 - data
 - error
 - [all returned values](https://tanstack.com/query/v4/docs/react/reference/useQuery)
 
 ---
 
-# Code examples
+# useQuery code examples
 
-1.  Basic GET request
-2.  GET request with params
-3.  GET request custom hook
+1. Basic GET request
+2. GET request with params
+3. GET request custom hook
+4. Parallel queries (GET requests)
+5. Dependent queries (GET requests)
+
+---
+
+# useMutation hook configuration
+
+- mutationFn: a function that returns a promise that resolves the data, or throws an error
+- [all options](https://tanstack.com/query/v4/docs/react/reference/useMutation)
+
+---
+
+# useMutation hook returned values
+
+- status (isLoading, isSuccess, isError, etc.)
+- data
+- error
+- [all returned values](https://tanstack.com/query/v4/docs/react/reference/useMutation)
+
+---
+
+# useMutation code examples
+
+1. Basic POST request
 
 ---
 
