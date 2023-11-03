@@ -8,6 +8,11 @@ const BasicGETExample = () => {
     const fetchTodos = async () => {
       try {
         const response = await fetch("http://localhost:3001/todos?user=tsevdos");
+
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+
         const data = await response.json();
         setTodosState((state) => ({ ...state, isLoading: false, data }));
       } catch (error) {
