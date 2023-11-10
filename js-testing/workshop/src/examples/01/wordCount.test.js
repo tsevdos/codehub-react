@@ -1,4 +1,4 @@
-import { wordCount } from "../wordCount";
+import { wordCount } from "./wordCount";
 
 describe("wordCount function:", () => {
   it("must return 1 with the string YOLO", () => {
@@ -22,8 +22,6 @@ describe("wordCount function:", () => {
   it("must throw new Error if argument is not a string", () => {
     const testStr = 123; // Not a string!!!!
 
-    expect(() => wordCount(testStr)).toThrowError(
-      "Prepei na mas doseis string!"
-    );
+    expect(() => wordCount(testStr)).toThrowError("Please provide a string");
   });
 });

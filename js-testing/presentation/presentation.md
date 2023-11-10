@@ -114,34 +114,104 @@ Feel free to interrupt me for:
 - zero configuration
 - many more...
 
-<!-- ---
-
-# Testing tools: e2e-testing tools
-
-- act as a real user / browser
-- Cypress, Playwright, Selenium, Puppeteer -->
-
 ---
 
 # Unit testing phases
 
-- setup
-- test
-- teardown
+1. setup / arrange
+2. act
+3. assert
+4. (teardown?)
 
 ---
 
-# Unit test exercise
+# Jest matchers: core
 
-- Edit the file `./src/examples/01/wordCount.js` in order to pass all tests.
-- Test file: `./src/examples/01/__tests__/wordCount.test.js`
+[all matchers](https://jestjs.io/docs/expect)
+
+- expect(value).toBe(value)
+- expect(value).toEqual(value)
+- expect(value).not.toBe(value)
 
 ---
 
-# Uint test exercise 2
+# Jest matchers: strings
 
-- Edit the file `./src/examples/02/isLeap.js` in order to pass all tests.
-- Test file: `./src/examples/02/__tests__/isLeap.test.js`
+- expect(value).toMatch(regexpOrString)
+
+---
+
+# Jest matchers: numbers
+
+- expect(value).toBeGreaterThan(number)
+- expect(value).toBeGreaterThanOrEqual(number)
+- expect(value).toBeLessThan(number)
+- expect(value).toBeLessThanOrEqual(number)
+
+---
+
+# Jest matchers: booleans
+
+- expect(value).toBeTruthy()
+- expect(value).toBeFalsy()
+
+---
+
+# Jest matchers: objects
+
+- expect(value).toBeInstanceOf(Class)
+- expect(value).toMatchObject(object)
+- expect(value).toHaveProperty(keyPath, value)
+- expect(value).toContain(item)
+- expect(value).toContainEqual(item)
+- expect(value).toHaveLength(number)
+
+---
+
+# Jest matchers: misc
+
+- expect(value).toBeUndefined()
+- expect(value).toBeDefined()
+- expect(value).toBeNull()
+- expect(value).toBeNaN()
+
+---
+
+# Jest matchers: errors
+
+- expect(value).toThrow(error)
+- expect(value).toThrowError("Error")
+
+---
+
+# Usefull jest commands / flags
+
+- `jest --watch`
+- `jest --coverage`
+
+---
+
+# writing Jest tests
+
+1. TDD / BDD syntax
+2. skipping tests
+3. setup helpers
+
+`./src/examples/00/writingTests.test.js`
+
+---
+
+# Unit test examples
+
+- function `./src/examples/01/wordCount.js`
+- class `./src/examples/02/Calculator.js`
+
+---
+
+# Uint test exercises
+
+- function `./src/examples/03/isLeapYear.js` in order to pass all tests.
+- test file `./src/examples/04/Person.js`
 
 ---
 
@@ -270,3 +340,18 @@ Examples 03 - 05
 # That's all folks
 
 ### Questions / Discussions?
+
+<!-- ---
+
+# Testing tools: e2e-testing tools
+
+- act as a real user / browser
+- Cypress, Playwright, Selenium, Puppeteer -->
+
+<!--
+
+Mocking: The concept of mocking is primarily used in unit testing. You’d use mocking for isolating code by simulating the behavior of real objects and replacing the real object with the mocked object or function. For example, you can use a mock to make a function throw an error to evaluate how the function you’re testing handles this error.
+
+Spying: A spy allows you to catch function invocations so you can later verify if the object got called with the right arguments. A spy won’t change the behavior of a function.
+
+Stubbing: Stubs are similar to spies. Instead of spying on a function, you can use a stub to control the behavior of a function. For example, a function makes an HTTP call to an external API. As you want predictable behavior for unit tests that don’t rely on unpredictable outcomes from an external API, we can stub the API call with a predefined value to make the test predictable again.
