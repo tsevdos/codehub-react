@@ -14,6 +14,7 @@ theme: uncover
 - what is testing
 - js / node testing
 - jest
+- testing basics
 
 ---
 
@@ -79,7 +80,7 @@ Feel free to interrupt me for:
 - detect and fix issues early (hopefully)
 - avoid "integration hell"
 - improve quality and testability
-- continuous feedback (automated)
+- continuous (automated) feedback
 - code metrics
 - increase transparency and communication
 - running tests frequently
@@ -97,9 +98,8 @@ Feel free to interrupt me for:
 # Testing tools: Assertion library
 
 - provide BDD and / or TDD styles for testing
-  - foo.should.equal('bar');
-  - expect(foo).to.equal('bar');
-  - assert.equal(foo, 'bar');
+  - it('works', () => { expect(2).toEqual(2); })
+  - test('works', () => {expect(2).toEqual(2); })
 - Jest, Chai, Jasmine etc.
 
 ---
@@ -116,12 +116,20 @@ Feel free to interrupt me for:
 
 ---
 
-# Unit testing phases
+# Usefull jest commands / flags
 
-1. setup / arrange
-2. act
-3. assert
-4. (teardown?)
+- `jest --watch`
+- `jest --coverage`
+
+---
+
+# Writing Jest tests
+
+1. TDD / BDD syntax
+2. skipping tests
+3. setup helpers
+
+`./src/examples/00/writingTests.test.js`
 
 ---
 
@@ -143,10 +151,10 @@ Feel free to interrupt me for:
 
 # Jest matchers: numbers
 
-- expect(value).toBeGreaterThan(number)
-- expect(value).toBeGreaterThanOrEqual(number)
 - expect(value).toBeLessThan(number)
 - expect(value).toBeLessThanOrEqual(number)
+- expect(value).toBeGreaterThan(number)
+- expect(value).toBeGreaterThanOrEqual(number)
 
 ---
 
@@ -162,8 +170,12 @@ Feel free to interrupt me for:
 - expect(value).toBeInstanceOf(Class)
 - expect(value).toMatchObject(object)
 - expect(value).toHaveProperty(keyPath, value)
+
+---
+
+# Jest matchers: arrays
+
 - expect(value).toContain(item)
-- expect(value).toContainEqual(item)
 - expect(value).toHaveLength(number)
 
 ---
@@ -180,24 +192,21 @@ Feel free to interrupt me for:
 # Jest matchers: errors
 
 - expect(value).toThrow(error)
-- expect(value).toThrowError("Error")
 
 ---
 
-# Usefull jest commands / flags
+# Jest matchers
 
-- `jest --watch`
-- `jest --coverage`
+`./src/examples/00/matchers.test.js`
 
 ---
 
-# writing Jest tests
+# Unit testing phases
 
-1. TDD / BDD syntax
-2. skipping tests
-3. setup helpers
-
-`./src/examples/00/writingTests.test.js`
+1. setup / arrange
+2. act
+3. assert
+4. (teardown?)
 
 ---
 
@@ -208,12 +217,62 @@ Feel free to interrupt me for:
 
 ---
 
-# Uint test exercises
+# Unit test exercises
 
 - function `./src/examples/03/isLeapYear.js` in order to pass all tests.
 - test file `./src/examples/04/Person.js`
 
 ---
+
+# Asynchronous testing
+
+- async / await
+- don't block the tests (especially the unit tests)
+
+---
+
+# Asynchronous testing examples
+
+- function `todo`
+- class `todo`
+
+---
+
+# Mocks and mocking
+
+Mocking: The concept of mocking is primarily used in unit testing. You’d use mocking for isolating code by simulating the behavior of real objects and replacing the real object with the mocked object or function. For example, you can use a mock to make a function throw an error to evaluate how the function you’re testing handles this error.
+
+---
+
+# Spies and spying
+
+Spying: A spy allows you to catch function invocations so you can later verify if the object got called with the right arguments. A spy won’t change the behavior of a function.
+
+---
+
+# Stubs and stubbing
+
+Stubbing: Stubs are similar to spies. Instead of spying on a function, you can use a stub to control the behavior of a function. For example, a function makes an HTTP call to an external API. As you want predictable behavior for unit tests that don’t rely on unpredictable outcomes from an external API, we can stub the API call with a predefined value to make the test predictable again.
+
+---
+
+# Using mocks examples
+
+- function `todo`
+- class `todo`
+
+---
+
+# Mocks test exercises
+
+- function `todo` in order to pass all tests.
+- test file `todo`
+
+---
+
+# That's all folks
+
+### Questions / Discussions?
 
 <!--
 # React testing library
@@ -335,23 +394,8 @@ Examples 03 - 05
 - have a look at the project
 
 ---
--->
-
-# That's all folks
-
-### Questions / Discussions?
-
-<!-- ---
 
 # Testing tools: e2e-testing tools
 
 - act as a real user / browser
 - Cypress, Playwright, Selenium, Puppeteer -->
-
-<!--
-
-Mocking: The concept of mocking is primarily used in unit testing. You’d use mocking for isolating code by simulating the behavior of real objects and replacing the real object with the mocked object or function. For example, you can use a mock to make a function throw an error to evaluate how the function you’re testing handles this error.
-
-Spying: A spy allows you to catch function invocations so you can later verify if the object got called with the right arguments. A spy won’t change the behavior of a function.
-
-Stubbing: Stubs are similar to spies. Instead of spying on a function, you can use a stub to control the behavior of a function. For example, a function makes an HTTP call to an external API. As you want predictable behavior for unit tests that don’t rely on unpredictable outcomes from an external API, we can stub the API call with a predefined value to make the test predictable again.

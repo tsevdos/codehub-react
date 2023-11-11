@@ -22,6 +22,6 @@ describe("wordCount function:", () => {
   it("must throw new Error if argument is not a string", () => {
     const testStr = 123; // Not a string!!!!
 
-    expect(() => wordCount(testStr)).toThrowError("Please provide a string");
+    expect(() => wordCount(testStr)).toThrow("Please provide a string");
   });
 });

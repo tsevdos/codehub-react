@@ -40,7 +40,7 @@ describe("Calculator", () => {
   });
 
   it("divide by zero throws an Error", () => {
-    expect(() => calculator.divide(0)).toThrowError(
+    expect(() => calculator.divide(0)).toThrow(
       "Divide by zero is not allowed."
     );
   });

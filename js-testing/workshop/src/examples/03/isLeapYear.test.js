@@ -19,6 +19,6 @@ describe("isLeapYear", () => {
   });
 
   test("Invalid input (not a number)", () => {
-    expect(() => isLeapYear("2024")).toThrowError("Please provide a number");
+    expect(() => isLeapYear("2024")).toThrow("Please provide a number");
   });
 });
