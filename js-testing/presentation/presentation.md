@@ -118,6 +118,7 @@ Feel free to interrupt me for:
 
 # Usefull jest commands / flags
 
+- `jest` (runs the tests)
 - `jest --watch`
 - `jest --coverage`
 
@@ -212,31 +213,42 @@ Feel free to interrupt me for:
 
 # Unit test examples
 
-- function `./src/examples/01/wordCount.js`
+- fn `./src/examples/01/wordCount.js`
 - class `./src/examples/02/Calculator.js`
 
 ---
 
 # Unit test exercises
 
-- function `./src/examples/03/isLeapYear.js` in order to pass all tests.
-- test file `./src/examples/04/Person.js`
+(100% code coverage)
+
+- fn `./src/examples/03/isLeapYear.js` in order to pass all tests.
+- class `./src/examples/04/Person.js`
 
 ---
 
 # Asynchronous testing
 
-- async / await
+- async / await (HTTP / DB requests, etc.)
 - don't block the tests (especially the unit tests)
 
 ---
 
 # Asynchronous testing examples
 
-- function `todo`
-- class `todo`
+- fn `./src/examples/05/getHTMLUserTodos.js`
+- class `./src/examples/06/asyncPerson.js`
 
 ---
+
+# Asynchronous testing exercises
+
+(100% code coverage)
+
+- fn `./src/examples/07/getHtmlTodo.js`
+- class `./src/examples/08/User.js`
+
+<!--
 
 # Mocks and mocking
 
@@ -267,6 +279,7 @@ Stubbing: Stubs are similar to spies. Instead of spying on a function, you can u
 
 - function `todo` in order to pass all tests.
 - test file `todo`
+-->
 
 ---
 

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "vite",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "api": "json-server db.json --port 3001 --delay 2000",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -29,6 +30,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "jest": "^29.7.0",
+    "json-server": "^0.17.4",
     "vite": "^4.4.5"
   }
 }
