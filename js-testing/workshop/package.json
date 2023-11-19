@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
     "api": "json-server db.json --port 3001 --delay 2000",
     "dev": "vite",
     "build": "vite build",

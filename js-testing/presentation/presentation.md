@@ -229,8 +229,11 @@ Feel free to interrupt me for:
 
 # Asynchronous testing
 
-- async / await (HTTP / DB requests, etc.)
-- don't block the tests (especially the unit tests)
+### async code
+
+- HTTP requests
+- DB
+- external services
 
 ---
 
@@ -248,7 +251,14 @@ Feel free to interrupt me for:
 - fn `./src/examples/07/getHtmlTodo.js`
 - class `./src/examples/08/User.js`
 
-<!--
+---
+
+# Asynchronous testing drawbacks
+
+- don't block the tests (especially the unit tests)
+- unit tests MUST be fast
+
+---
 
 # Mocks and mocking
 
@@ -268,18 +278,102 @@ Stubbing: Stubs are similar to spies. Instead of spying on a function, you can u
 
 ---
 
-# Using mocks examples
+# Jest's mocked function
 
-- function `todo`
-- class `todo`
+```
+const mockFn = jest.fn();
+```
 
 ---
 
-# Mocks test exercises
+# Mocking return values and promises
 
-- function `todo` in order to pass all tests.
-- test file `todo`
--->
+```
+const mockFn = jest.fn();
+mockFn.mockReturnValue(42);
+
+
+// mock promises (async / await)
+const mockAsyncFn = jest.fn();
+mockAsyncFn.mockResolvedValue('Async Result');
+```
+
+---
+
+# Mocking implementation
+
+```
+const mockFn = jest.fn(() => 'Mocked Implementation');
+```
+
+---
+
+# Checking calls
+
+```
+const mockFn = jest.fn();
+
+mockFn('arg1', 'arg2');
+
+expect(mockFn).toHaveBeenCalledTimes(1);
+expect(mockFn).toHaveBeenCalledWith('arg1', 'arg2');
+```
+
+---
+
+# Resetting a mock
+
+```
+const mockFn = jest.fn();
+
+mockFn();
+
+expect(mockFn).toHaveBeenCalled();
+
+mockFn.mockReset();
+
+expect(mockFn).not.toHaveBeenCalled();
+```
+
+---
+
+# Jest mock a module
+
+```
+jest.mock("../path/to/module");
+```
+
+---
+
+# Jest mock with specific implemetation
+
+```
+jest.mock("../path/to/module", () => ({
+  ...jest.requireActual("../path/to/module"),
+  getAge: jest.fn().mockReturnValue(42);
+  getTodos: jest.fn().mockResolvedValue([
+    { id: 1, title: "Learn React" },
+    { id: 2, title: "Go to Code.Hub" },
+    { id: 3, title: "Go out for a drink" },
+  ]),
+}));
+```
+
+---
+
+# Jest mocks examples
+
+- fn `./src/examples/09/getHTMLUserTodos.js`
+- class `./src/examples/10/asyncPerson.js`
+
+---
+
+# Jest mocks exercises
+
+(using mocks - 100% code coverage)
+
+- fn `./src/examples/11/getHtmlTodo.js`
+- class `./src/examples/12/User.js`
 
 ---
 
