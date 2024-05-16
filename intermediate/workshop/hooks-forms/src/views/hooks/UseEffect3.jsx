@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const UseEffect4 = () => {
+const UseEffect3 = () => {
   const [x, setX] = useState(null);
   const [y, setY] = useState(null);
 
@@ -22,7 +22,7 @@ const UseEffect4 = () => {
 
   return (
     <div>
-      <h2>Hooks 05: useEffect()</h2>
+      <h2>Hooks: useEffect()</h2>
       <hr />
       <h4>Mouse X</h4>
       <p>{x}</p>
@@ -32,4 +32,4 @@ const UseEffect4 = () => {
   );
 };
 
-export default UseEffect4;
+export default UseEffect3;

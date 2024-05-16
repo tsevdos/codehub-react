@@ -8,7 +8,7 @@ const SimpleInput = () => {
 
   return (
     <div>
-      <h2>Form events 01: Input</h2>
+      <h2>Form events: Input</h2>
       <hr />
       <div>
         <label htmlFor="name">Name:</label>

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-export default function UseEffect2() {
+const UseEffect2 = () => {
   const [joke, setJoke] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     fetch("https://api.chucknorris.io/jokes/random")
       .then((res) => res.json())
@@ -18,9 +19,11 @@ export default function UseEffect2() {
 
   return (
     <div>
-      <h2>Hooks 03: useEffect()</h2>
+      <h2>Hooks: useEffect()</h2>
       <hr />
       <div>{isLoading ? <h3>Loading...</h3> : <h3>{joke}</h3>}</div>
     </div>
   );
-}
+};
+
+export default UseEffect2;

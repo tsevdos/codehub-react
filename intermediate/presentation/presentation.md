@@ -13,9 +13,9 @@ theme: uncover
 
 # Agenda
 
-All the content can be found [here](https://github.com/codehub-learn/react-pfizer).
+All the content can be found [here](https://github.com/tsevdos/codehub-react).
 
-- create react app
+- vite app
 - hooks
 - forms and events
 
@@ -30,24 +30,24 @@ Feel free to interrupt me for:
 
 ---
 
-# Create react app
+# Vite app
 
-Create React App is an officially supported way to create single-page React applications. It offers a modern build setup with no configuration.
+Vite is the easiest way to create client-side, single-page React applications. It offers a modern build setup with no configuration.
 
 ---
 
-# Create react app
+# Vite app init
 
 ```shell
-npx create-react-app my-app
+npm create vite@latest my-app -- --template react
 cd my-app
-npm i axios antd
-npm start
+npm install
+npm run dev
 ```
 
 ---
 
-# Create react app
+# Vite app
 
 Files and directory structure (demo).
 
@@ -196,7 +196,7 @@ Replace the hard-coded todos with server data, using this [endpoint](https://api
 
 # Recap
 
-- create react app
+- vite app
 - hooks
 - forms and events
 

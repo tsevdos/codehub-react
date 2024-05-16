@@ -12,7 +12,7 @@ const InputAndTextarea = () => {
 
   return (
     <div>
-      <h2>Form events 02: Input and textarea</h2>
+      <h2>Form events: Input and textarea</h2>
       <hr />
       <div>
         <label htmlFor="name">Name:</label>

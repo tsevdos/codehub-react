@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 const initialState = {
   joke: "",
@@ -16,7 +16,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function UseReducer() {
+const UseReducer = () => {
   const [{ joke, isLoading }, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     fetch("https://api.chucknorris.io/jokes/random")
@@ -28,11 +28,13 @@ export default function UseReducer() {
 
   return (
     <div>
-      <h2>Hooks 06: useReducer()</h2>
+      <h2>Hooks: useReducer()</h2>
       <hr />
       <div>
         <h3>{isLoading ? "Loading..." : joke}</h3>
       </div>
     </div>
   );
-}
+};
+
+export default UseReducer;

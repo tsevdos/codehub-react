@@ -22,7 +22,7 @@ const SelectRadioButtonCheckbox = () => {
 
   return (
     <div>
-      <h2>Form events 03: Select, radio button and checkbox</h2>
+      <h2>Form events: Select, radio button and checkbox</h2>
       <div>
         <label htmlFor="language">Favorite language:</label>
         <select name="language" value={language} onChange={changeLanguage}>

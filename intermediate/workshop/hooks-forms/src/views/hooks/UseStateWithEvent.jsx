@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const UseEffect3 = () => {
+const UseStateWithEvent = () => {
   const [joke, setJoke] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
   const fetchQuote = () => {
     setIsLoading(true);
 
@@ -20,16 +21,16 @@ const UseEffect3 = () => {
 
   return (
     <div>
-      <h2>Hooks 04: useEffect()</h2>
+      <h2>Hooks: useState() with event</h2>
       <hr />
-      <button type="primary" onClick={fetchQuote} disabled={isLoading}>
-        Fetch Quote!
-      </button>
       <div>
         <h3>{isLoading ? "Loading..." : joke}</h3>
       </div>
+      <button type="primary" onClick={fetchQuote} disabled={isLoading}>
+        Fetch Quote!
+      </button>
     </div>
   );
 };
 
-export default UseEffect3;
+export default UseStateWithEvent;
