@@ -4,18 +4,25 @@ const SelectRadioButtonCheckbox = () => {
   const [language, setlanguage] = useState("");
   const [gender, setGender] = useState("");
   const [interests, setInterests] = useState([]);
+
   const changeLanguage = (e) => {
     setlanguage(e.target.value);
   };
+
   const changeGender = (e) => {
     setGender(e.target.value);
   };
-  const changeFood = (e) => {
+
+  const changeInterests = (e) => {
     const value = e.target.value;
+
     if (interests.includes(value)) {
-      // setInterests
-      setInterests(interests.filter((interest) => interest !== value));
+      // remove interest
+      const newState = interests.filter((interest) => interest !== value);
+
+      setInterests(newState);
     } else {
+      // add interest
       setInterests([...interests, value]);
     }
   };
@@ -26,7 +33,7 @@ const SelectRadioButtonCheckbox = () => {
       <div>
         <label htmlFor="language">Favorite language:</label>
         <select name="language" value={language} onChange={changeLanguage}>
-          <option value="">Select...</option>
+          <option value="">Select language...</option>
           <option value="JavaScript">JavaScript</option>
           <option value="TypeScript">TypeScript</option>
           <option value="Rust">Rust</option>
@@ -66,7 +73,7 @@ const SelectRadioButtonCheckbox = () => {
               name="programming"
               value="programming"
               checked={interests.includes("programming")}
-              onChange={changeFood}
+              onChange={changeInterests}
             />{" "}
             Programming
           </label>
@@ -76,7 +83,7 @@ const SelectRadioButtonCheckbox = () => {
               name="movies"
               value="movies"
               checked={interests.includes("movies")}
-              onChange={changeFood}
+              onChange={changeInterests}
             />{" "}
             Movies
           </label>
@@ -86,7 +93,7 @@ const SelectRadioButtonCheckbox = () => {
               name="boxing"
               value="boxing"
               checked={interests.includes("boxing")}
-              onChange={changeFood}
+              onChange={changeInterests}
             />{" "}
             Boxing
           </label>
