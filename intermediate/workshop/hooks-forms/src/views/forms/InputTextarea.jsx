@@ -31,3 +31,9 @@ const InputAndTextarea = () => {
 };
 
 export default InputAndTextarea;
+
+// Exercise: Use only one event handler and state to manage both input and textarea fields. For example:
+// const [formState, setFormState] = useState({
+//   name: "",
+//  comment: "",
+// });
