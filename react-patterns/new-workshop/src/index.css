@@ -13,38 +13,9 @@ body {
   background: #f0f2f5;
 }
 
-/* 
-.header {
-  display: flex;
-}
- 
-.header h1 {
-  color: #fff;
-  font-weight: bold;
-}
-
-.inner-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 24px;
-}
-
-footer {
-  text-align: center;
-}
-
-.characters-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.characters-container > div {
-  width: 300px;
-  margin: 0 1rem 1rem 0;
-}
-
+/* Conpound component classes */
 .tabs {
+  width: 80%;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -79,4 +50,4 @@ footer {
 
 .tab-content.is-visible {
   display: block;
-} */
+}
