@@ -14,8 +14,8 @@ const CharactersListContainer = () => {
 
   return (
     <CharactersList
-      characters={characters}
       title="SSC 03: Stateful and stateless components"
+      characters={characters}
     />
   );
 };
