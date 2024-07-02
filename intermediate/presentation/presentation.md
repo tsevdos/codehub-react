@@ -94,7 +94,7 @@ Let you put state and logic to your functional components!
 
 ---
 
-# Hooks Hooks
+# React Hooks
 
 - useMemo: Returns a memoized value. Pass a “create" function and an array of inputs. useMemo will only recompute the memoized value when one of the inputs has changed.
 - useRef: useRef returns a mutable ref object whose ".current" property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.
