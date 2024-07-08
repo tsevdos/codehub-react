@@ -104,7 +104,7 @@ Let you put state and logic to your functional components!
 # useState
 
 ```jsx
-const [state, steState] = useState("my value");
+const [state, setState] = useState("my value");
 ```
 
 ---
