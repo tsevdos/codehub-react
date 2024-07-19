@@ -18,7 +18,6 @@ const CharactersListCH4 = () => {
         {isLoading ? (
           <Loader />
         ) : (
-          Boolean(characters.length) &&
           characters.map(({ id, name, culture, isFemale }) => (
             <div key={id} className="bg-gray-200 p-4 rounded">
               <h3 className="text-lg font-bold text-gray-800">{name}</h3>

@@ -31,12 +31,7 @@ const FormSubmit = () => {
       <form onSubmit={handleSearch}>
         <div>
           <label htmlFor="name">Pokemon search:</label>
-          <input
-            type="text"
-            name="name"
-            value={inputName}
-            onChange={updateName}
-          />
+          <input type="text" name="name" value={inputName} onChange={updateName} />
         </div>
         <button type="submit">Search!</button>
       </form>

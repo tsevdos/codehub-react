@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React, { useState } from "react";
 import TabsNavItem from "./TabsNavItem";
 import TabsContent from "./TabsContent";
 
