@@ -26,14 +26,11 @@ export default (state = initialState, action) => {
     case ADD_TODO:
       return [...state, payload];
     case TOGGLE_TODO:
-      const newState = state.map((todo) => {
-        if (todo.id === payload) {
-          return { ...todo, done: !todo.done };
-        }
-        return todo;
-      });
+      const newTodo = state.map((todo) =>
+        todo.id === payload ? { ...todo, done: !todo.done } : todo
+      );
 
-      return [...newState];
+      return [...newTodo];
     default:
       return state;
   }
