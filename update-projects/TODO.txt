@@ -1,0 +1,51 @@
+﻿https://www.robinwieruch.de/react-function-component/
+
+Currying (functional programming)
+Currying is the process of transforming a function that takes multiple arguments into a series of functions that take one argument at a time
+
+
+JSX Basics
+https://scotch.io/starters/react/jsx-basics
+
+
+
+
+ReactJS Fundamentals (https://ti.to/kent-c-dodds/react-fundamentals-2019-06-17/discount/early?ck_subscriber_id=363848206)
+===================
+Topics
+Create HTML elements with React's createElement API
+Use JSX to create React elements for DOM nodes
+Creating custom components
+Styling your app with React
+Handling user events
+Basic forms with React
+Dynamic forms with React
+Using React Fragments
+What is the “key” prop and how to use it effectively
+Pre-requisites
+Attend Modern JavaScript or have the equivalent experience with modern JavaScript APIs.
+Experience with HTML, CSS, and DOM APIs.
+
+React Hooks (https://ti.to/kent-c-dodds/react-hooks-2019-06-18/discount/early?ck_subscriber_id=363848206)
+==========
+Manage state with useState and useReducer (and learn when to use each)
+Interact with the DOM and simulate class instance variables with useRef and useEffect
+Access context values with useContext
+Create custom hooks to organize and reuse component logic
+
+Pre-requisites:
+ReactJS Fundamentals
+
+
+Advanced React Hooks (https://ti.to/kent-c-dodds/advanced-react-hooks-2019-06-19/discount/early?ck_subscriber_id=363848206)
+==================
+Optimize expensive operations with useMemo and useCallback
+Interact with third party DOM libraries with useLayoutEffect
+Learn when to use (and when not to use) useImperativeHandle and useDebugValue
+Create custom hooks for complex use cases using patterns like prop getters and even hooks that create other components
+
+Pre-requisites:
+This is an advanced course. Please make sure you understand that and are prepared before the workshop to ensure you have a positive learning experience. Do not purchase a ticket if you aren't comfortable with JavaScript, React, and basic React Hooks!
+
+ReactJS Fundamentals
+Knowledge of basic React Hooks use (egghead playlist, egghead course, Learn React Hooks)

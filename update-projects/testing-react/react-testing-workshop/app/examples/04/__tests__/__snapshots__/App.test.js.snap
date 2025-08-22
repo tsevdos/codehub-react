@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders correctly with snapshot (mount) 1`] = `
+<App>
+  <div>
+    <CharacterList
+      data={
+        Array [
+          Object {
+            "gender": "male",
+            "name": "John Tsevdos",
+          },
+          Object {
+            "gender": "female",
+            "name": "Patricia Lebsack",
+          },
+          Object {
+            "gender": "male",
+            "name": "Dennis Schulist",
+          },
+        ]
+      }
+      onSelectCharacter={[Function]}
+    >
+      <div>
+        <h2
+          className="is-size-4"
+        >
+          Unit Testing
+        </h2>
+        <h3
+          className="is-size-5"
+        >
+          04: Snapshots testing
+        </h3>
+        <br />
+        <ul
+          id="characters"
+        >
+          <li
+            key="John Tsevdos"
+            onClick={[Function]}
+          >
+            John Tsevdos
+             is 
+            male
+          </li>
+          <li
+            key="Patricia Lebsack"
+            onClick={[Function]}
+          >
+            Patricia Lebsack
+             is 
+            female
+          </li>
+          <li
+            key="Dennis Schulist"
+            onClick={[Function]}
+          >
+            Dennis Schulist
+             is 
+            male
+          </li>
+        </ul>
+      </div>
+    </CharacterList>
+  </div>
+</App>
+`;
+
+exports[`<App /> renders correctly with snapshot (shallow) 1`] = `
+<div>
+  <CharacterList
+    data={
+      Array [
+        Object {
+          "gender": "male",
+          "name": "John Tsevdos",
+        },
+        Object {
+          "gender": "female",
+          "name": "Patricia Lebsack",
+        },
+        Object {
+          "gender": "male",
+          "name": "Dennis Schulist",
+        },
+      ]
+    }
+    onSelectCharacter={[Function]}
+  />
+</div>
+`;

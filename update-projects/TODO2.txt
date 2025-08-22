@@ -1,0 +1,15 @@
+main
+1) Add a reset button 
+2) Vale askisi Todos me all/visible/done (no API).
+-> https://bmbarker90.github.io/selectors-presentation/#/11
+
+
+Redux:
+https://redux.js.org/basics/basic-tutorial
+
+Selectors
+1) https://blog.isquaredsoftware.com/2017/12/idiomatic-redux-using-reselect-selectors/
+2) https://www.youtube.com/watch?v=frT3to2ACCw 
+3) https://medium.com/@TomasEhrlich/use-selectors-in-redux-for-great-good-59286ce2e2a1
+4) https://codebrahma.com/reselect-tutorial-optimizing-react-redux-application-development-with-reselect/
+

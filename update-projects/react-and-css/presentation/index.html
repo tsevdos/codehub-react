@@ -1,0 +1,650 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>React and CSS</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/arduino-light.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style>
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      text-transform: none;
+    }
+
+    .logo {
+      position: fixed;
+      height: 80px;
+      top: 1em;
+      left: 1em;
+      z-index: -100;
+    }
+
+    .logo img {
+      height: 100%;
+      opacity: 0.2;
+    }
+
+    .reveal section img {
+      border: 0;
+      background: none;
+      box-shadow: none;
+    }
+
+    .my-links {
+      position: fixed;
+      width: 100%;
+      bottom: 1em;
+      left: 1em;
+      z-index: -100;
+      font-size: 24px;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+    }
+
+    .my-links p {
+      margin: 0;
+    }
+
+    .my-links a {
+      color: #2a76dd;
+      text-decoration: none;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="codehub-logo.png" alt="MoT logo." />
+    </div>
+
+    <div class="my-links">
+      <p>
+        <small><a href="http://tsevdos.me/">tsevdos.me</a> / <a href="http://twitter.com/tsevdos">@tsevdos</a></small>
+      </p>
+    </div>
+
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>React and CSS</h1>
+          <p>
+            <small><a href="http://tsevdos.me/">tsevdos.me</a> / <a href="http://twitter.com/tsevdos">@tsevdos</a></small>
+          </p>
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Agenda</h2>
+            <ul>
+              <li>standard CSS</li>
+              <li>CSS modules</li>
+              <li>CSS in JS</li>
+              <li>react / webpack tools for CSS</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>What we won't cover</h2>
+            <ul>
+              <li>CSS code</li>
+              <li>CSS methodologies (BEM, OOCSS and SMACSS)</li>
+              <li>CSS preprocessors (Sass, LESS, Stylus, etc.)</li>
+              <li>CSS prefixes</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Rules</h2>
+            <ul>
+              <li>raise your hand to ask questions</li>
+              <li>feel free to to make relevant comments</li>
+              <li>on hands-on sections before asking:
+                <ol>
+                  <li>struggle a bit</li>
+                  <li>then ask for help ;-)</li>
+                </ol>
+              </li>
+            </ul>
+          </section>
+
+        </section>
+
+
+        <section>
+
+          <section>
+            <h2>Webpack: standard CSS files</h2>
+            <img src="webpack.png" alt="Standard CSS files" />
+          </section>
+
+          <section>
+            <h2>Webpack: standard CSS files</h2>
+            <ul>
+              <li>webpack generates and bundles all the CSS files</li>
+              <li>we use plain CSS classes in React</li>
+              <li>add CSS preprocessor support (SCSS in our case)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Standard CSS files</h2>
+<pre><code class="json">{
+...
+  "devDependencies": {
+    ...
+    "mini-css-extract-plugin": "^0.4.4",
+    "css-loader": "^0.28.11",
+    "postcss-loader": "^3.0.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3"
+  }
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Standard CSS files</h2>
+<pre><code class="js">const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production';
+
+module.exports = {
+  ...
+  module: {
+    rules: [
+      ...
+      {
+        test: /\.scss$/,
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader", // translates CSS into CommonJS
+          "postcss-loader", // adds vendor prefixes
+          "sass-loader" // compiles Sass to CSS
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({ filename: "styles.css" })
+  ]
+};
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Standard CSS files</h2>
+<pre><code>render() {
+  return &lt;div className=&quot;menu navigation-menu&quot;&gt;Menu&lt;/div&gt;
+}
+</code></pre>
+<pre><code class="js">render() {
+  let className = &quot;menu&quot;;
+  if (this.props.isActive) {
+    className += &quot; menu-active&quot;;
+  }
+
+  return &lt;div className={className}&gt;Menu&lt;/div&gt;
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Classnames: Standard CSS files</h2>
+<pre><code class="js">{
+...
+  "dependencies": {
+    "classnames": "^2.2.5"
+  }
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Classnames: Standard CSS files</h2>
+<pre><code class="js">classNames("foo", "bar"); // => "foo bar"
+classNames("foo", { bar: true }); // => "foo bar"
+classNames({ foo: true }, { bar: true }); // => "foo bar"
+classNames({ foo: true, bar: true }); // => "foo bar"
+
+// lots of arguments of various types
+classNames("foo", { bar: true, duck: false }, "baz", { quux: true }) // => "foo bar baz quux"
+
+// other falsy values are just ignored
+classNames(null, false, "bar", undefined, 0, 1, { baz: null }, ""); // => "bar 1"
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Classnames: Standard CSS files</h2>
+<pre><code class="js">render() {
+  var divClasses = classNames(
+    "my-class",
+    "standard",
+    {
+      &quot;main-class&quot;: this.props.users.length === 0,
+      &quot;active-class&quot;: this.state.focused === index
+    }
+  );
+
+  return &lt;div className={divClasses}&gt;My div&lt;/div&gt;
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Standard CSS files</h2>
+            <ul>
+              <li>normal CSS files</li>
+              <li>CSS preprocessors</li>
+              <li>straight forward for designers / developers</li>
+              <li>difficult to apply classes in components</li>
+              <li>easy debugging</li>
+              <li>CSS is not part of the component</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>CSS modules</h2>
+            <ul>
+              <li>locally scoped CSS class names</li>
+              <li>composition</li>
+              <li>importing</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>CSS modules</h2>
+            <ul>
+              <li>feature of <a href="https://github.com/webpack-contrib/css-loader" target="_blank">css-loader</a></li>
+            </ul>
+<pre><code class="js">{
+  test: /\.css$/,
+  use: [
+    {
+      loader: "css-loader",
+      options: {
+        modules: true,
+        localIdentName: "[path][name]__[local]--[hash:base64:5]"
+      }
+    }
+  ]
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>CSS modules: Usage</h2>
+<pre><code class="js">// lets have some CSS in JS: styles.css
+.button {
+  padding: 12px;
+  width: 100px;
+}
+
+// Importing and using in a jsx
+import React from "react";
+import styles from "./styles.css";
+
+function Button() {
+  return &lt;button className={styles.button}&gt;Click Me&lt;/button&gt;
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>CSS modules: Composition</h2>
+<pre><code>.className {
+  color: blue;
+  background: red;
+}
+
+.otherClassName {
+  composes: className;
+  color: black;
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>CSS modules: Composing from other files</h2>
+<pre><code>.element {
+  composes: dark-red from "./colors.css";
+  font-size: 30px;
+  line-height: 1.2;
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>CSS modules: Global classes</h2>
+<pre><code>:global(.padding) {
+  padding: 2em;
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>CSS modules</h2>
+            <p>Demo app</p>
+          </section>
+
+          <section>
+            <h2>CSS modules</h2>
+            <ul>
+              <li>no global scope / no more conflicts</li>
+              <li>explicit dependencies</li>
+              <li>straight forward for designers / developers</li>
+              <li>easy debugging</li>
+              <li>basic composition</li>
+              <li>CSS preprocessors</li>
+              <li>CSS in JS (component) but not so dynamic (props)</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>CSS in JS</h2>
+            <ul>
+              <li><a href="https://emotion.sh/" target="_blank">emotion (strings or objects)</a></li>
+              <li><a href="https://www.styled-components.com/" target="_blank">styled-components (strings)</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>emotion</h2>
+            <p>String flavor</p>
+<pre><code>const Link = styled.a`
+  min-width: 12rem;
+  margin: 0 auto 20px;
+  padding: ${props => (props.primary ? 18 : 16)}px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: ${props =>
+    props.primary ? 'none' : '3px solid currentColor'};
+  background: ${props =>
+    props.primary &&
+    'linear-gradient(90deg, #D26AC2, #46C9E5)'};
+  color: ${props =>
+    props.primary ? '#1D2029' : '#D26AC2'};
+  &:hover {
+    opacity: 0.95;
+  }
+  @media (min-width: 768px) {
+    margin: 0 20px 0 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+`
+</code></pre>
+          </section>
+
+          <section>
+            <h2>emotion</h2>
+            <p>Object flavor</p>
+<pre><code class="js">const Link = styled.a(props => ({
+  minWidth: '12rem',
+  margin: '0 auto 20px',
+  padding: props.primary ? 18 : 16,
+  borderRadius: 5,
+  textDecoration: 'none',
+  border: props.primary ? 'none' : '3px solid currentColor',
+  background:
+    props.primary &&
+    'linear-gradient(90deg, #D26AC2, #46C9E5)',
+  color: props.primary ? '#1D2029' : '#D26AC2',
+  '&:hover': {
+    opacity: '0.95'
+  },
+  '@media (min-width: 768px)': {
+    margin: '0 20px 0 0',
+    '&:last-child': {
+      margin: 0
+    }
+  }
+}))
+</code></pre>
+          </section>
+
+          <section>
+            <h2>emotion: installation</h2>
+<pre><code class="js">{
+...
+  "dependencies": {
+    "emotion": "^9.2.12",
+    "react-emotion": "^9.2.12"
+  }
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h2>emotion</h2>
+            <p>The primary way to style things in emotion is with emotion css</p>
+            <ul>
+              <li>it accepts styles as a template literal, object, or array of objects</li>
+              <li>and returns a class name</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>emotion: css example</h2>
+<pre><code class="js">import { css } from 'emotion';
+
+render(
+  &lt;div
+    className={css({
+      backgroundColor: 'hotpink',
+      '&amp;:hover': {
+        color: 'lightgreen'
+      }
+    })}
+  &gt;
+    This has a hotpink background and lightgreen on hover!
+  &lt;/div&gt;
+)
+</code></pre>
+          </section>
+
+          <section>
+            <h2>emotion: css example</h2>
+<pre><code class="js">import { css } from 'emotion';
+
+const divClass = css({
+  backgroundColor: 'hotpink',
+  '&amp;:hover': {
+    color: 'lightgreen'
+  }
+});
+
+render(
+  &lt;div className={divClass}&gt;
+    This has a hotpink background and lightgreen on hover!
+  &lt;/div&gt;
+)
+</code></pre>
+          </section>
+
+          <section>
+            <h2>emotion: css example</h2>
+            <p>Demo app</p>
+          </section>
+
+          <section>
+            <h2>emotion: styled example</h2>
+<pre><code class="js">// div styled component (Container.js file)
+import styled from "react-emotion";
+import { border, borderRadius, bgColors, fontColors } from "../../styles/theme";
+
+export default styled("div")((props) => ({
+  margin: "0 0 1em",
+  padding: "1em 2em",
+  border: border,
+  borderColor: fontColors[props.type],
+  borderRadius: borderRadius,
+  background: bgColors[props.type]
+}));
+
+// Container div styled component
+const Alert = ({ type, msg }) =&gt; (
+  &lt;Container type={type}&gt;
+    &lt;h3&gt;{msg}&lt;/h3&gt;
+  &lt;/Container&gt;
+);
+</code></pre>
+          </section>
+
+          <section>
+            <h2>emotion: composition</h2>
+<pre><code class="js">// Title.js
+import styled from "react-emotion";
+
+export default styled("h3")((props) => ({
+  margin: 0,
+  color: "black",
+  fontSize: "1.3em"
+}));
+
+// BigTitle.js
+import styled from "react-emotion";
+import Title from "./Title";
+
+export default styled(Title)({
+  fontSize: "1.6em",
+  fontWeight: "bold"
+});
+</code></pre>
+          </section>
+
+          <section>
+            <h2>emotion: styled example</h2>
+            <p>Demo app</p>
+          </section>
+
+          <section>
+            <h2>emotion: rest</h2>
+            <ul>
+              <li>many more ways to compose elements and styles</li>
+              <li>theming (import { ThemeProvider } from "react-emotion")</li>
+              <li>a lot more</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>emotion / styled components</h2>
+            <ul>
+              <li>JS as a preprocessor</li>
+              <li>use component props for styling purposes</li>
+              <li>real composition</li>
+              <li>easy installation</li>
+              <li>huge API to learn</li>
+              <li>not designer friendly</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Hands on: emotion</h2>
+            <p>sample at (css-in-js-hands-on.zip)</p>
+            <ul>
+              <li>build a ComposedCard component</li>
+              <li>the ComposedCard must accept these props &lt;ComposedCard bigTitle title=&quot;Card title&quot; body=&quot;My body text.&quot; buttonText=&quot;Click me&quot; /&gt;</li>
+              <li>the ComposedCard must have a Container, a Title, a Body and a Button element</li>
+              <li>feel free to re-use the existing Container and Title from the Alert elements</li>
+              <li>feel free to add theme related entries to theme</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Recap</h2>
+            <ul>
+              <li>webpack / standard CSS files</li>
+              <li>CSS modules</li>
+              <li>CSS in JS</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Recap: webpack / standard CSS files</h2>
+            <ul>
+              <li>CSS preprocessor (ex. SCSS)</li>
+              <li>CSS classes and classnames</li>
+              <li>classnames library</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Recap: CSS modules</h2>
+            <ul>
+              <li>feature of css-loader</li>
+              <li>no global scope</li>
+              <li>CSS preprocessor (ex. SCSS)</li>
+              <li>CSS classes and classnames</li>
+              <li>composition</li>
+              <li>global classes</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Recap: CSS in JS</h2>
+            <ul>
+              <li>emotion</li>
+              <li>JS as a preprocessor</li>
+              <li>CSS classes</li>
+              <li>styled components</li>
+              <li>real composition</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>That's all folks</h2>
+          <h3>Questions / Discussions?</h3>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

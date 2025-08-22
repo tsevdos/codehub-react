@@ -1,0 +1,8 @@
+.link {
+  composes: blue-text from "../../styles/colors.css";
+  composes: button from "../Button/styles.css";
+  width: auto;
+  background: pink;
+  display: block;
+  margin: 1em 0 0;
+}

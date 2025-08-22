@@ -1,0 +1,5 @@
+.button {
+  composes: button from "../../styles/button.css";
+  background-color: red;
+  width: 100%;
+}

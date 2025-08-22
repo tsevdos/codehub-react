@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="36.525999999999996" tests="14" failures="0">
+  <testsuite name="Root Suite" timestamp="2018-11-09T19:50:21" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="TodoMVC - React" timestamp="2018-11-09T19:50:21" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="When page is initially opened" timestamp="2018-11-09T19:50:21" tests="1" failures="0" time="3.263">
+    <testcase name="TodoMVC - React When page is initially opened should focus on the todo input field" time="3.263" classname="should focus on the todo input field">
+    </testcase>
+  </testsuite>
+  <testsuite name="No Todos" timestamp="2018-11-09T19:50:28" tests="1" failures="0" time="1.885">
+    <testcase name="TodoMVC - React No Todos should hide #main and #footer" time="1.885" classname="should hide #main and #footer">
+    </testcase>
+  </testsuite>
+  <testsuite name="New Todo" timestamp="2018-11-09T19:50:30" tests="6" failures="0" time="13.322">
+    <testcase name="TodoMVC - React New Todo should allow me to add todo items" time="3.292" classname="should allow me to add todo items">
+    </testcase>
+    <testcase name="TodoMVC - React New Todo adds items" time="3.153" classname="adds items">
+    </testcase>
+    <testcase name="TodoMVC - React New Todo should clear text input field when an item is added" time="1.592" classname="should clear text input field when an item is added">
+    </testcase>
+    <testcase name="TodoMVC - React New Todo should append new items to the bottom of the list" time="2.175" classname="should append new items to the bottom of the list">
+    </testcase>
+    <testcase name="TodoMVC - React New Todo should trim text input" time="1.581" classname="should trim text input">
+    </testcase>
+    <testcase name="TodoMVC - React New Todo should show #main and #footer when items added" time="1.529" classname="should show #main and #footer when items added">
+    </testcase>
+  </testsuite>
+  <testsuite name="Item" timestamp="2018-11-09T19:50:44" tests="3" failures="0" time="8.093">
+    <testcase name="TodoMVC - React Item should allow me to mark items as complete" time="2.082" classname="should allow me to mark items as complete">
+    </testcase>
+    <testcase name="TodoMVC - React Item should allow me to un-mark items as complete" time="2.784" classname="should allow me to un-mark items as complete">
+    </testcase>
+    <testcase name="TodoMVC - React Item should allow me to edit an item" time="3.227" classname="should allow me to edit an item">
+    </testcase>
+  </testsuite>
+  <testsuite name="Editing" timestamp="2018-11-09T19:50:52" tests="3" failures="0" time="9.963000000000001">
+    <testcase name="TodoMVC - React Editing should hide other controls when editing" time="2.882" classname="should hide other controls when editing">
+    </testcase>
+    <testcase name="TodoMVC - React Editing should save edits on blur" time="2.871" classname="should save edits on blur">
+    </testcase>
+    <testcase name="TodoMVC - React Editing should trim entered text" time="4.21" classname="should trim entered text">
+    </testcase>
+  </testsuite>
+</testsuites>
