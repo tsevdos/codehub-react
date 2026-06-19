@@ -1,0 +1,164 @@
+.app-layout {
+  font-family: sans-serif;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme */
+.app-layout.light {
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6a6a6a;
+  --card-surface: rgba(0, 0, 0, 0.03);
+  --card-surface-hover: rgba(0, 0, 0, 0.06);
+  --card-border-hex: rgba(0, 0, 0, 0.1);
+  --card-border-hover-hex: rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--card-border-hex);
+  background: var(--card-surface);
+  gap: 2rem;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-logo img {
+  display: block;
+}
+
+.app-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-hex);
+}
+
+.app-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-toggle-button {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--card-border-hex);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: all 160ms ease;
+}
+
+.app-toggle-button:hover {
+  border-color: var(--accent-hex);
+  background: rgba(0, 240, 255, 0.1);
+}
+
+.app-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.app-nav li {
+  padding: 0.5rem 1rem;
+}
+
+.app-nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.app-nav a:hover {
+  color: var(--accent-hex);
+}
+
+.app-main-container {
+  display: flex;
+  flex: 1;
+}
+
+.app-sidebar {
+  width: 280px;
+  padding: 2rem;
+  border-right: 1px solid var(--card-border-hex);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.app-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.app-sidebar nav li {
+  padding: 0.5rem 0;
+}
+
+.app-sidebar nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.app-sidebar nav a:hover {
+  color: var(--accent-hex);
+}
+
+.app-main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.app-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--card-border-hex);
+  background: var(--card-surface);
+  text-align: center;
+}
+
+.app-footer p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.app-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.app-profile img {
+  border-radius: 50%;
+  border: 2px solid var(--card-border-hex);
+}
+
+.app-user-info {
+  margin-bottom: 1rem;
+}
+
+.app-user-info p {
+  margin: 0.25rem 0;
+  color: var(--text-primary);
+}
