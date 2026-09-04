@@ -233,31 +233,26 @@ setName("John");
 
 # DOM scripting: document.createElement
 
-```html
+```jsx
 // file workshop/JSX/00.html
 
-<html>
-  <head></head>
-  <body>
-    <div id="app"></div>
-    <script type="text/javascript">
-      const rootElement = document.getElementById("app");
-      const element = document.createElement("div");
-      element.textContent = "Hello World";
-      element.className = "container";
-      rootElement.appendChild(element);
-...
+const rootElement = document.getElementById("app");
+const element = document.createElement("div");
+      
+element.textContent = "Hello World";
+element.className = "container";
+rootElement.appendChild(element);
 ```
 
 ---
 
 # React.createElement
 
-```js
+```jsx
 // file workshop/JSX/01.html
 
 const app = document.getElementById("app");
-const root = ReactDOM.createRoot(app);
+const root = createRoot(app);
 const element = React.createElement(
   "div",
   { className: "container" },
@@ -283,7 +278,8 @@ React.createElement(type, [props], [...children]);
 // file workshop/JSX/02.html
 
 const app = document.getElementById("app");
-const root = ReactDOM.createRoot(app);
+const root = createRoot(app);
+
 const element = React.createElement(
   "div",
   { className: "container" },
@@ -308,7 +304,7 @@ representation of real DOM. The representation of a UI is kept in memory and syn
 
 # Virtual DOM
 
-![height:550px](./assets/v-dom.png)
+![height:545px](./assets/v-dom.png)
 
 ---
 
