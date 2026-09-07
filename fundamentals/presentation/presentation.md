@@ -1,8 +1,10 @@
 ---
 marp: true
-theme: uncover
-# header: "React Fundamentals"
-# footer: "[tsevdos.me](https://tsevdos.me/) / [@tsevdos](https://twitter.com/tsevdos)"
+theme: default
+style: |
+  section {
+    font-size: 250%;
+  }
 ---
 
 # React Fundamentals
@@ -33,8 +35,8 @@ Feel free to interrupt me for:
 
 # What is React
 
-**React is a library for building user
-interfaces.**
+**React is a library for building user interfaces.**
+<br />
 
 - virtual DOM
 - JSX
@@ -62,7 +64,7 @@ interfaces.**
 
 # Composition
 
-![](./assets/composition.png)
+![height:550px](./assets/composition.png)
 
 ---
 
@@ -152,6 +154,7 @@ function Avatar(props) {
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
+
 let total = 0;
 for (let i = 0; i < numbers.length; i++) {
   total += numbers[i];
@@ -234,8 +237,7 @@ setName("John");
 # DOM scripting: document.createElement
 
 ```jsx
-// file workshop/JSX/00.html
-
+// JSX/00.html
 const rootElement = document.getElementById("app");
 const element = document.createElement("div");
       
@@ -249,8 +251,7 @@ rootElement.appendChild(element);
 # React.createElement
 
 ```jsx
-// file workshop/JSX/01.html
-
+// JSX/01.html
 const app = document.getElementById("app");
 const root = createRoot(app);
 const element = React.createElement(
@@ -275,8 +276,7 @@ React.createElement(type, [props], [...children]);
 # React.createElement
 
 ```jsx
-// file workshop/JSX/02.html
-
+// JSX/02.html
 const app = document.getElementById("app");
 const root = createRoot(app);
 
@@ -297,22 +297,20 @@ const element = React.createElement(
 
 # Virtual DOM
 
-The virtual DOM (VDOM) is an in-memory
-representation of real DOM. The representation of a UI is kept in memory and synced with the “real” DOM. It’s a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called reconciliation.
+The virtual DOM (VDOM) is an in-memory representation of real DOM. The representation of a UI is kept in memory and synced with the “real” DOM. It’s a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called reconciliation.
 
 ---
 
 # Virtual DOM
 
-![height:545px](./assets/v-dom.png)
+![height:540px](./assets/v-dom.png)
 
 ---
 
 # JSX
 
 ```jsx
-// file workshop/JSX/03.html
-
+// JSX/03.html
 // const element = React.createElement(
 //   "div",
 //   { className: "container" },
@@ -327,8 +325,7 @@ const element = <div className="container">Hello World</div>;
 # JSX
 
 ```jsx
-// file workshop/JSX/04.html
-
+// JSX/04.html
 const element = (
   <div className="container">
     <div>Div 1</div>
@@ -345,8 +342,7 @@ const element = (
 # JSX interpolation
 
 ```js
-// file workshop/JSX/05.html
-
+// JSX/05.html
 const title = "Hello World";
 const myClassName = "container";
 
@@ -357,30 +353,29 @@ const element = <div className={`${myClassName}-1`}>{title}</div>;
 
 # Babel transpilation / compilation
 
-- [example](https://babeljs.io/repl#?browsers=&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=MYewdgzgLgBATiEUCiAbApgW3WWBeGAExGAFdtcA6Ac3RQwqgCEBPASUIAoAiAQwAd-3AJQBuAFDjQkWFACWUDDALcAEulSoQMAOog4qQtwnToMTCwDCqXhAgA5XtmUxu0qLzlh0cY5NOwGlg4-DAAPIRyAG4wwDZ2jth4AN4ABgAkyRbWtg5O6AC-ALQAjKkFAHzJ8oqFYQD0kVEVokA&debug=false&forceAllTransforms=false&modules=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=true&targets=&version=7.22.5&externalPlugins=&assumptions=%7B%7D)
+- [example](https://babeljs.io/repl#?config_lz=N4IgZglgNgpgdgQwLYxALhAJxgBygOgCsBnADxABoQdtiYAXY9AbWaxgQGN7LRMBXOPQgp0IBP3oB7JAmGcQAXwC6yqsSn9MnGABUAnjlQYkUgCb9YSoA&code_lz=MYewdgzgLgBATiEUCiAbApgW3WWBeGAExGAFdtcA6Ac3RQwqgCEBPASUIAoAiAQwAd-3AJQBuAFDjQkWFACWUDDALcAEulSoQMAOog4qQtwnToMTCwDCqXhAgA5XtmUxu0qLzlh0cY5NOwGlg4-DAAPIRyAG4wwDZ2jth4AN4ABgAkyRbWtg5O6AC-ALQAjKkFAHzJ8oqFYQD0kVEVokA&lineWrap=true&prettier=true&version=8.0.0)
 
 ---
 
 # Components
 
-- functional components
-- props
-- children
+- what is a component
+- component props
+- component children
 - conditional rendering
 
 ---
 
 # Components
 
-A component is a function or a class which optionally accepts input and returns a React element (or null).
+A component is a function (~~or a class~~) which optionally accepts input and returns a React element (or null).
 
 ---
 
 # Still JSX (no components)
 
 ```jsx
-// file workshop/components/00.html
-
+// components/00.html
 const element = (
   <div className="container">
     <div>Hello World</div>
@@ -394,8 +389,7 @@ const element = (
 # Still JSX (no components)
 
 ```jsx
-// file workshop/components/01.html
-
+// components/01.html
 const myDiv = <div>Hello World</div>;
 const element = (
   <div className="container">
@@ -410,8 +404,7 @@ const element = (
 # Our first functional reusable component
 
 ```jsx
-// file workshop/components/02.html
-
+// components/02.html
 const MyDiv = (props) => {
   return <div>{props.msg}</div>;
 };
@@ -419,7 +412,7 @@ const MyDiv = (props) => {
 const element = (
   <div className="container">
     <MyDiv msg="Hello World" />
-    <MyDiv msg="Welcome to Code.Hub" />
+    <MyDiv msg="Hi all!!!" />
   </div>
 );
 ```
@@ -437,15 +430,14 @@ User-defined components must be capitalized in JSX (lower-case tag names are con
 
 # Functional component transpilation
 
-- [Babel example](https://babeljs.io/repl#?browsers=&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=MYewdgzgLgBATiEUCiAbApgW3WWBeGAExGAFdtcA6Ac3RQwqgCEBPASUIAoAiAQwAd-3AJQBuAFDjQkWAFkWAEQCWANxgF-CfhHUA-GAG9xMeHVJwwMADyFVug5pDbKmCNQC-VgPS2Vuie4SUuDQMOgMOPgwnMbWvjDAqLwQEAByvNh43NJQvEpg6HDcurEmVvLKaq7UWQAS4aggMADqIHCohNwwXiUmZRWqMNVZzeGg2DBQTQDCIITolLWkAEZdPbHeviVikgBK6LzAUAoA8rKUcDjzcJzhWJEANPCI9Pe4YkA&debug=false&forceAllTransforms=false&modules=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.22.5&externalPlugins=&assumptions=%7B%7D)
+- [Babel example](https://babeljs.io/repl#?config_lz=N4IgZglgNgpgdgQwLYxALhAJxgBygOgCsBnADxABoQdtiYAXY9AbWaxgQGN7LRMBXOPQgp0IBP3oB7JAmGcQAXwC6yqsSn9MnGABUAnjlQYkUgCb9YSoA&code_lz=MYewdgzgLgBATiEUCiAbApgW3WWBeGAExGAFdtcA6Ac3RQwqgCEBPASUIAoAiAQwAd-3AJQBuAFDjQkWAFkWAEQCWANxgF-CfhHUA-GAG9xMeHVJwwMADyFVug5pDbKmCNQC-VgPS2Vuie4SUuDQMOgMOPgwnMbWvjDAqLwQEAByvNh43NJQvEpg6HDcurEmVvLKaq7UWQAS4aggMADqIHCohNwwXiUmZRWqMNVZzeGg2DBQTQDCIITolLWkAEZdPbHeviVikgBK6LzAUAoA8rKUcDjzcJzhWJEANPCI9Pe4YkA&lineWrap=true&version=8.0.0)
 
 ---
 
 # Components and children
 
 ```jsx
-// file workshop/components/03.html
-
+// components/03.html
 const MyDiv = (props) => {
   return <div>{props.children}</div>;
 };
@@ -454,10 +446,15 @@ const element = (
   <div className="container">
     <MyDiv>Hello World</MyDiv>
     <MyDiv>
-      Welcome to Code.Hub
+      Welcome all!
       <MyDiv>Hi I'm a component</MyDiv>
     </MyDiv>
-...
+    <MyDiv>
+      <h1>Title</h1>
+      <p>Welcome</p>
+    </MyDiv>
+  </div>
+);
 ```
 
 ---
@@ -483,11 +480,10 @@ Props.children displays whatever you include between the opening and closing tag
 
 ---
 
-# Functional components
+# Components
 
 ```jsx
-// example components/04.html
-
+// components/04.html
 const Avatar = (props) => {
   return (
     <div>
@@ -505,11 +501,10 @@ const Avatar = (props) => {
 
 ---
 
-# Functional components
+# Components
 
 ```jsx
-// example components/05.html
-
+// components/05.html
 <Widget
   title="Website traffic"
   logo="https://cdn-icons-png.flaticon.com/512/5610/5610944.png"
@@ -519,11 +514,10 @@ const Avatar = (props) => {
 
 ---
 
-# Functional components
+# Components
 
 ```jsx
-// example components/06.html
-
+// components/06.html
 <div>
   <Widget
     title="Website traffic"
@@ -540,11 +534,10 @@ const Avatar = (props) => {
 
 ---
 
-# Functional components
+# Components
 
 ```jsx
-// example components/07.html
-
+// components/07.html
 const Widget = (props) => {
   return (
     <div>
@@ -563,8 +556,7 @@ const Widget = (props) => {
 # Conditional rendering: If/Else
 
 ```jsx
-// example components/08.html
-
+// components/08.html
 const User = ({ username }) => {
   if (username) {
     return <div>Hello, {username}</div>;
@@ -579,12 +571,11 @@ const User = ({ username }) => {
 # Conditional rendering: Ternary operator
 
 ```jsx
-// example components/09.html
-
+// components/09.html
 const User = ({ username }) => {
   return (
     <div>
-      {username ? <span>Hello, {username}</span> : <span>Hi stranger!</span>}
+      {username ? <>Hello, {username}</> : <>Hi stranger!</>}
     </div>
   );
 };
@@ -595,16 +586,11 @@ const User = ({ username }) => {
 ## Conditional rendering: Ternary operator
 
 ```jsx
-// example components/10.html
-
+// components/10.html
 const User = ({ username }) => {
   return (
     <div>
-      {username ? (
-        <React.Fragment>Hello, {username}</React.Fragment>
-      ) : (
-        <React.Fragment>Hi stranger!</React.Fragment>
-      )}
+      {username ?  `Hello, ${username}`: "Hi stranger!"}
     </div>
   );
 };
@@ -615,8 +601,7 @@ const User = ({ username }) => {
 ## Conditional rendering: <br/> Short-circuit operator (&&)
 
 ```jsx
-// example components/11.html
-
+// components/11.html
 const FavoriteColorsList = ({ list }) => {
   return (
     <div>
@@ -627,7 +612,9 @@ const FavoriteColorsList = ({ list }) => {
           ))}
         </div>
       )}
-  ...
+    </div>
+  );
+};
 ```
 
 ---
@@ -636,7 +623,6 @@ const FavoriteColorsList = ({ list }) => {
 
 ```jsx
 // example components/12.html
-
 const User = ({ isLoggedIn }) => {
   let button;
 
@@ -654,16 +640,16 @@ const User = ({ isLoggedIn }) => {
 
 # Components
 
-- functional components
-- state
-- hooks
+- what is a component
+- component state
+- component hooks
 - event handlers
 
 ---
 
 # Components
 
-A component is a function or a class which optionally accepts input and returns a React element (or null).
+A component is a function (~~or a class~~) which optionally accepts input and returns a React element (or null).
 
 ---
 
