@@ -662,8 +662,7 @@ useState hook enqueues changes to the component state and tells React that this 
 # Component state
 
 ```jsx
-// example state/00.html
-
+// state/00.html
 const LikeCount = () => {
   const [counter, setCounter] = React.useState(0);
   const handleLike = () => {
@@ -684,15 +683,14 @@ const LikeCount = () => {
 # Use useState hook correctly
 
 - Only update the state with the appropriate function
-- State updates may be asynchronous (React may batch multiple setState() calls into a single update for performance)
+- State updates are asynchronous (React may batch multiple `setState()` calls into a single update for performance)
 
 ---
 
 # Component state
 
 ```jsx
-// example state/01.html
-
+// state/01.html
 const LikeCount = () => {
   const [counter, setCounter] = React.useState(0);
   const handleLike = () => {
@@ -706,7 +704,7 @@ const LikeCount = () => {
 
 ---
 
-# Use useState hook correctly
+# Use `useState` hook correctly
 
 ```js
 // Wrong
@@ -726,8 +724,7 @@ setCounter((counter) => counter + 1);
 # Do not mutate the state
 
 ```jsx
-// example state/02.html
-
+// state/02.html
 const changeName = () => {
   const newProfile = profile;
   profile.user.name = "New Name";
@@ -741,7 +738,7 @@ const changeName = () => {
 ## Updating the state correctly
 
 ```jsx
-// example state/03.html
+// state/03.html
 
 const changeName = () => {
   setProfile((profile) => ({
@@ -783,7 +780,7 @@ const newUser = Object.assign({}, user);
 The state of one component can be the props of another one.
 
 ```jsx
-// example state/04.html
+// state/04.html
 const Form = () => {
 ...
 
@@ -816,87 +813,61 @@ return (
 
 # Styling and CSS
 
-- CSS stylesheet
-- Inline styling
+- global CSS stylesheets
+- CSS modules
+- CSS in JS
+- build-time CSS
+- inline styling
+- UI libraries
+
+---
+
+# Global CSS stylesheets
+
+- global styles
+- `styling-and-css/00.html`
+
 
 ---
 
 # CSS classes
 
-```jsx
-// example styling-and-css/00.html
-
-const MyComponent = () => {
-  return (
-    <div className="container my-5">
-      <h1>Hello, world!</h1>
-      <div className="col-lg-8 px-0">
-        <p className="fs-5">
-          You've successfully loaded up the Bootstrap starter example. It
-          includes <a href="https://getbootstrap.com/">Bootstrap 5</a> via
-          the{" "}
-          <a href="https://www.jsdelivr.com/package/npm/bootstrap">
-            jsDelivr CDN
-          </a>{" "}
-          and includes an additional CSS and JS file for your own code.
-        </p>
-...
-```
-
----
-
-# CSS classes
-
-```jsx
-// example styling-and-css/01.html
-
-const MyComponent = () => {
-  const className = "container";
-
-  return (
-    <div className={`${className} my-5`}>
-      <h1>Hello, world!</h1>
-      <div className="col-lg-8 px-0">
-        <p className="fs-5">
-          You've successfully loaded up the Bootstrap starter example. It
-          includes <a href="https://getbootstrap.com/">Bootstrap 5</a> via
-          the{" "}
-          <a href="https://www.jsdelivr.com/package/npm/bootstrap">
-            jsDelivr CDN
-          </a>{" "}
-          and includes an additional CSS and JS file for your own code.
-        </p>
-...
-```
+- linked styles
+- `styling-and-css/01.html`
 
 ---
 
 # In-line styles
 
 ```jsx
-// example styling-and-css/02.html
+// styling-and-css/02.html
 
 const buttonStyles = {
-  margin: "0 1rem 0 0",
-  fontSize: "2rem",
+  color: "#fff",
+  background: "linear-gradient(135deg, #3057d5, #4d7cff)",
+  border: "1px solid rgba(48, 87, 213, 0.2)",
+  ...
 };
 
- <a
+<a
   href="https://getbootstrap.com"
-  className="btn btn-primary"
+  className="btn btn-primary btn-lg"
   style={buttonStyles}
 >
-...
+  My button
+</a>
 ```
 
 ---
 
 # React and styling is a huge topic
 
-- CSS stylesheet
-- Inline styling
+- global CSS stylesheets
 - CSS modules
-- CSS-in-JS
+- CSS in JS
+- build-time CSS
+- inline styling
+- UI libraries
 
 ---
 
@@ -939,8 +910,12 @@ const buttonStyles = {
 
 # Recap: Styling and CSS
 
-- CSS stylesheet
-- Inline styling
+- global CSS stylesheets
+- CSS modules
+- CSS in JS
+- build-time CSS
+- inline styling
+- UI libraries
 
 ---
 

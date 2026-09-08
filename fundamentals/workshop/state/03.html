@@ -1,14 +1,14 @@
 <html>
   <head>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.28.0/babel.min.js"></script>
   </head>
   <body>
     <div id="app"></div>
-    <script type="text/babel">
+    <script type="text/babel" data-type="module" data-presets="react">
+      import React from "https://esm.sh/react@19.2.0";
+      import { createRoot } from "https://esm.sh/react-dom@19.2.0/client";
       const app = document.getElementById("app");
-      const root = ReactDOM.createRoot(app);
+      const root = createRoot(app);
 
       const Avatar = () => {
         const [profile, setProfile] = React.useState({

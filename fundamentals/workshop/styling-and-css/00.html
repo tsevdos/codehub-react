@@ -1,25 +1,138 @@
 <html>
   <head>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    />
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.28.0/babel.min.js"></script>
+    <style>
+      html,
+      body,
+      #app {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(91, 141, 255, 0.2), transparent 34%),
+          radial-gradient(circle at top right, rgba(55, 196, 160, 0.16), transparent 28%),
+          linear-gradient(135deg, #f7f9fc 0%, #edf2f7 100%);
+        color: #14213d;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 32px 16px;
+      }
+
+      .card {
+        width: min(100%, 760px);
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(20, 33, 61, 0.08);
+        border-radius: 28px;
+        box-shadow: 0 24px 60px rgba(20, 33, 61, 0.14);
+        backdrop-filter: blur(14px);
+        overflow: hidden;
+      }
+
+      .card__body {
+        padding: 28px;
+      }
+
+      .card__title {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .card__text {
+        margin: 0;
+        color: #52607a;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .card__text + .card__text {
+        margin-top: 14px;
+      }
+
+      .card__rule {
+        width: 56px;
+        height: 4px;
+        margin: 24px 0;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #3057d5, #37c4a0);
+      }
+
+      .card__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .card__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 14px;
+        border: 1px solid transparent;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease, color 160ms ease;
+      }
+
+      .card__button:hover {
+        transform: translateY(-1px);
+      }
+
+      .card__button--primary {
+        background: linear-gradient(135deg, #3057d5, #4d7cff);
+        color: #fff;
+        box-shadow: 0 12px 24px rgba(48, 87, 213, 0.28);
+      }
+
+      .card__button--primary:hover {
+        color: #fff;
+      }
+
+      .card__button--secondary {
+        background: rgba(255, 255, 255, 0.72);
+        color: #24324a;
+        border-color: rgba(36, 50, 74, 0.14);
+      }
+
+      .card__button--secondary:hover {
+        color: #24324a;
+        box-shadow: 0 10px 22px rgba(20, 33, 61, 0.12);
+      }
+
+      @media (min-width: 640px) {
+        .card__body {
+          padding: 40px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
-    <script type="text/babel">
+    <script type="text/babel" data-type="module" data-presets="react">
+      import React from "https://esm.sh/react@19.2.0";
+      import { createRoot } from "https://esm.sh/react-dom@19.2.0/client";
       const app = document.getElementById("app");
-      const root = ReactDOM.createRoot(app);
+      const root = createRoot(app);
 
       const MyComponent = () => {
         return (
-          <div className="container my-5">
-            <h1>Hello, world!</h1>
-            <div className="col-lg-8 px-0">
-              <p className="fs-5">
+          <div className="page">
+            <div className="card">
+              <div className="card__body">
+                <h1 className="card__title">Hello, world!</h1>
+                <div>
+                  <p className="card__text">
                 You've successfully loaded up the Bootstrap starter example. It
                 includes <a href="https://getbootstrap.com/">Bootstrap 5</a> via
                 the{" "}
@@ -27,23 +140,30 @@
                   jsDelivr CDN
                 </a>{" "}
                 and includes an additional CSS and JS file for your own code.
-              </p>
-              <p>
-                Feel free to download or copy-and-paste any parts of this
-                example.
-              </p>
+                  </p>
+                  <p className="card__text">
+                    Feel free to download or copy-and-paste any parts of this
+                    example.
+                  </p>
 
-              <hr className="col-1 my-4" />
+                  <div className="card__rule" />
 
-              <a href="https://getbootstrap.com" className="btn btn-primary">
-                Read the Bootstrap docs
-              </a>
-              <a
-                href="https://github.com/twbs/examples"
-                className="btn btn-secondary"
-              >
-                View on GitHub
-              </a>
+                  <div className="card__actions">
+                    <a
+                      href="https://getbootstrap.com"
+                      className="card__button card__button--primary"
+                    >
+                      Read the Bootstrap docs
+                    </a>
+                    <a
+                      href="https://github.com/twbs/examples"
+                      className="card__button card__button--secondary"
+                    >
+                      View on GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         );
