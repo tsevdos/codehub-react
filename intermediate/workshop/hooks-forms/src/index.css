@@ -1,27 +1,255 @@
+:root {
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  color: #1f2321;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.85), transparent 32%),
+    linear-gradient(180deg, #f2f1ec 0%, #e7e3dc 100%);
+  color-scheme: light;
+  --bg-soft: rgba(255, 255, 255, 0.76);
+  --bg-strong: #fbfaf7;
+  --border-soft: rgba(57, 62, 57, 0.14);
+  --border-strong: rgba(57, 62, 57, 0.28);
+  --text-soft: #5a615d;
+  --text-strong: #1f2321;
+  --accent: #3f4a44;
+  --accent-strong: #2c332f;
+  --shadow-soft: 0 18px 45px rgba(28, 31, 29, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
-  background: rgb(43, 48, 53);
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-strong);
+  background: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+button {
+  padding: 0.8rem 1rem;
+  background: var(--bg-strong);
+  color: var(--text-strong);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+  box-shadow: 0 10px 24px rgba(28, 31, 29, 0.08);
+}
+
+input,
+select,
+textarea {
+  width: min(100%, 30rem);
+  padding: 0.8rem 0.95rem;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-soft);
+  margin: 1.5rem 0;
 }
 
 #app {
-  margin: 0;
-  padding: 0;
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
 }
 
 #header {
-  height: 7vh;
+  margin-bottom: 1.5rem;
+}
+
+.nav-shell {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  background: var(--bg-soft);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+}
+
+.brand-block h1,
+.content-card h1,
+.content-card h2,
+.content-card h3,
+.content-card h4 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.brand-block h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  color: var(--text-soft);
+}
+
+.examples-panel {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 1rem;
+}
+
+.examples-panel summary {
+  font-weight: 700;
+  color: var(--accent-strong);
+  list-style: none;
+}
+
+.examples-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.example-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.nav-button {
+  width: 100%;
+  text-align: left;
+}
+
+.nav-button.is-active {
+  background: var(--accent);
+  color: #f5f2ea;
+  border-color: transparent;
 }
 
 #main {
-  min-height: 86vh;
-  padding: 3rem 0;
-} 
+  min-height: 60vh;
+}
+
+.content-card {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  background: rgba(251, 250, 247, 0.88);
+  box-shadow: var(--shadow-soft);
+}
+
+.content-card > :first-child {
+  margin-top: 0;
+}
+
+.option-demo select {
+  display: block;
+}
+
+.option-group {
+  margin-top: 1.5rem;
+}
+
+.option-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100%, 30rem);
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.option-row span {
+  text-align: left;
+  flex: 1;
+}
 
 #footer {
-  height: 7vh;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: rgb(43, 48, 53);
-  color:rgb(173, 181, 189)
+  padding: 1.5rem 0 0;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  #app {
+    width: min(100%, calc(100% - 1rem));
+    padding-top: 1rem;
+  }
+
+  .nav-shell,
+  .content-card {
+    border-radius: 22px;
+  }
+
+  .example-list {
+    grid-template-columns: 1fr;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
 }

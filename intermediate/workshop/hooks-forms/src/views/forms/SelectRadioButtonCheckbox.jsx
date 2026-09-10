@@ -28,7 +28,7 @@ const SelectRadioButtonCheckbox = () => {
   };
 
   return (
-    <div>
+    <div className="option-demo">
       <h2>Form events: Select, radio button and checkbox</h2>
       <div>
         <label htmlFor="language">Favorite language:</label>
@@ -41,61 +41,63 @@ const SelectRadioButtonCheckbox = () => {
           <option value="Java">Java</option>
         </select>
       </div>
-      <div>
+      <div className="option-group">
         <h2>Gender:</h2>
-        <label>
-          <input
-            type="radio"
-            name="gender"
-            value="male"
-            checked={gender === "male"}
-            onChange={changeGender}
-          />{" "}
-          Male
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="gender"
-            value="female"
-            checked={gender === "female"}
-            onChange={changeGender}
-          />{" "}
-          Female
-        </label>
+        <div className="option-list">
+          <label className="option-row">
+            <span>Male</span>
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              checked={gender === "male"}
+              onChange={changeGender}
+            />
+          </label>
+          <label className="option-row">
+            <span>Female</span>
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              checked={gender === "female"}
+              onChange={changeGender}
+            />
+          </label>
+        </div>
       </div>
-      <div>
+      <div className="option-group">
         <h2>Interests:</h2>
-        <div>
-          <label>
+        <div className="option-list">
+          <label className="option-row">
+            <span>Programming</span>
             <input
               type="checkbox"
               name="programming"
               value="programming"
               checked={interests.includes("programming")}
               onChange={changeInterests}
-            />{" "}
-            Programming
+            />
           </label>
-          <label>
+          <label className="option-row">
+            <span>Movies</span>
             <input
               type="checkbox"
               name="movies"
               value="movies"
               checked={interests.includes("movies")}
               onChange={changeInterests}
-            />{" "}
-            Movies
+            />
           </label>
-          <label>
+          <label className="option-row">
+            <span>Boxing</span>
             <input
               type="checkbox"
               name="boxing"
               value="boxing"
               checked={interests.includes("boxing")}
               onChange={changeInterests}
-            />{" "}
-            Boxing
+            />
           </label>
         </div>
       </div>

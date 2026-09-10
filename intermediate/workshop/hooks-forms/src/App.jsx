@@ -1,8 +1,4 @@
 import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 // Pages
 import Home from "./views/Home";
 // Hooks
@@ -17,95 +13,68 @@ import SimpleInput from "./views/forms/SimpleInput";
 import InputTextarea from "./views/forms/InputTextarea";
 import SelectRadioButtonCheckbox from "./views/forms/SelectRadioButtonCheckbox";
 import FormSubmit from "./views/forms/FormSubmit";
-import { pages } from "./lib/config";
 
-const {
-  home,
-  useStateHook,
-  useEffect1,
-  useEffect2,
-  useStateWithEvent,
-  useEffect3,
-  useReducer,
-  simpleInput,
-  inputAndTextarea,
-  selectRadioButtonCheckbox,
-  formSubmit,
-} = pages;
+const home = "Home";
+
+const pageDefinitions = [
+  { name: home, component: Home },
+  { name: "useState() demo", component: UseState },
+  { name: "useEffect() demo 1", component: UseEffect1 },
+  { name: "useEffect() demo 2", component: UseEffect2 },
+  { name: "useState() with event", component: UseStateWithEvent },
+  { name: "useEffect() demo 3", component: UseEffect3 },
+  { name: "useReducer()", component: UseReducer },
+  { name: "Simple input", component: SimpleInput },
+  { name: "Input and Textarea", component: InputTextarea },
+  {
+    name: "Selects, Radio Buttons and Checkboxes",
+    component: SelectRadioButtonCheckbox,
+  },
+  { name: "Form submit", component: FormSubmit },
+];
 
 const App = () => {
   const [page, setPage] = useState(home);
+  const activePage = pageDefinitions.find((pageDefinition) => pageDefinition.name === page);
+  const ActiveComponent = activePage?.component ?? Home;
 
   return (
     <div id="app">
-      <div id="header">
-        <Navbar expand="lg" bg="dark" data-bs-theme="dark">
-          <Container>
-            <Navbar.Brand>Intermediate React</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link onClick={() => setPage(home)}>Home</Nav.Link>
-                <NavDropdown title="Examples" id="basic-nav-dropdown">
-                  <NavDropdown.Item onClick={() => setPage(useStateHook)}>
-                    {useStateHook}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(useEffect1)}>
-                    {useEffect1}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(useEffect2)}>
-                    {useEffect2}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(useStateWithEvent)}>
-                    {useStateWithEvent}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(useEffect3)}>
-                    {useEffect3}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(useReducer)}>
-                    {useReducer}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(simpleInput)}>
-                    {simpleInput}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(inputAndTextarea)}>
-                    {inputAndTextarea}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={() => setPage(selectRadioButtonCheckbox)}
+      <header id="header">
+        <nav className="nav-shell">
+          <div className="brand-block">
+            <p className="eyebrow">Workshop</p>
+            <h1>Intermediate React</h1>
+          </div>
+          <details className="examples-panel" open>
+            <summary>Examples</summary>
+            <div className="example-list">
+              {pageDefinitions.map((pageDefinition) => (
+                <div key={pageDefinition.name}>
+                  <button
+                    className={
+                      page === pageDefinition.name
+                        ? "nav-button is-active"
+                        : "nav-button"
+                    }
+                    type="button"
+                    onClick={() => setPage(pageDefinition.name)}
                   >
-                    {selectRadioButtonCheckbox}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setPage(formSubmit)}>
-                    {formSubmit}
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </div>
+                    {pageDefinition.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </details>
+        </nav>
+      </header>
       <main id="main">
-        <Container>
-          {/* Hooks */}
-          {page === home && <Home />}
-          {page === useStateHook && <UseState />}
-          {page === useEffect1 && <UseEffect1 />}
-          {page === useEffect2 && <UseEffect2 />}
-          {page === useStateWithEvent && <UseStateWithEvent />}
-          {page === useEffect3 && <UseEffect3 />}
-          {page === useReducer && <UseReducer />}
-          {/* Forms */}
-          {page === simpleInput && <SimpleInput />}
-          {page === inputAndTextarea && <InputTextarea />}
-          {page === selectRadioButtonCheckbox && <SelectRadioButtonCheckbox />}
-          {page === formSubmit && <FormSubmit />}
-        </Container>
+        <section className="content-card">
+          <ActiveComponent />
+        </section>
       </main>
       <footer id="footer">
-        <Container>
-          <footer>Made with ❤️ in Greece.</footer>
-        </Container>
+        <p>Made with ❤️ in Greece.</p>
       </footer>
     </div>
   );
