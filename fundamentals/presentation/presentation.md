@@ -89,7 +89,6 @@ Feel free to interrupt me for:
 function getProfilePhoto(username) {
   return "https://twitter.com/photos/" + username;
 }
-
 function getProfileLink(username) {
   return "https://twitter.com/" + username;
 }
@@ -205,7 +204,7 @@ $("#btn").click(function () {
 ```
 
 ```jsx
-<Button onClick="handleClick" isActive={isActive} />;
+<Button onClick="handleClick" isActive={isActive} />
 
 setIsActive(!isActive);
 ```
@@ -221,6 +220,8 @@ setIsActive(!isActive);
 # Explicit mutations
 
 ```js
+const [name, setName] = useState("");
+
 setName("John");
 ```
 
@@ -303,7 +304,7 @@ The virtual DOM (VDOM) is an in-memory representation of real DOM. The represent
 
 # Virtual DOM
 
-![height:540px](./assets/v-dom.png)
+![height:535px](./assets/v-dom.png)
 
 ---
 
@@ -755,7 +756,7 @@ const changeName = () => {
 
 ## Updating the state correctly
 
-Immutable tricks for arrays and objects
+Immutable tricks for arrays
 
 ```jsx
 // Arrays
@@ -765,7 +766,15 @@ setState([...arr, "new value"]);
 const newArr = arr.slice();
 newArr.push("new value");
 setState(newArr);
+```
 
+---
+
+## Updating the state correctly
+
+Immutable tricks for objects
+
+```jsx
 // Objects
 // Spread Operator (ES6)
 setState({ ...user, name: "New Name" });
