@@ -1,8 +1,10 @@
 ---
 marp: true
-theme: uncover
-# header: "Intermediate React"
-# footer: "[tsevdos.me](https://tsevdos.me/) / [@tsevdos](https://twitter.com/tsevdos)"
+theme: default
+style: |
+  section {
+    font-size: 230%;
+  }
 ---
 
 # Intermediate React
@@ -61,10 +63,10 @@ Let you put state and logic to your functional components!
 
 # Hook rules
 
-- only call hooks from React function components
 - only call hooks at the top level
 - don’t call hooks inside loops, conditions, or nested functions
 - custom hooks start with useSomething PascalCase function
+- ~~only call hooks from React function components~~
 
 ---
 
@@ -166,31 +168,16 @@ Examples.
 
 # Mini project: ToDo list
 
-Starting point (./intermediate/workshop/todo-app).
+Starting point (./intermediate/workshop/todo-app)
 
 ---
 
-# Mini project: exercise 1
+# Mini project exercises
 
-Create the add todo functionality.
-
----
-
-# Mini project: exercise 2
-
-Create the toggle todo functionality.
-
----
-
-# Mini project: exercise 3
-
-Create the delete todo functionality.
-
----
-
-# Mini project: exercise 4
-
-Replace the hard-coded todos with server data, using this [endpoint](https://api.npoint.io/046043e533a374a3388d).
+1. Complete the add todo functionality
+2. Complete the toggle todo functionality
+3. Complete the delete todo functionality
+4. Bonus: Replace the hard-coded todos with server data, using this [endpoint](https://api.npoint.io/046043e533a374a3388d).
 
 ---
 
@@ -211,7 +198,7 @@ Replace the hard-coded todos with server data, using this [endpoint](https://api
 
 # Recap: forms and events
 
-- (SyntheticEvent) event object
+- SyntheticEvent object
 - input handling
 - form handling
 
