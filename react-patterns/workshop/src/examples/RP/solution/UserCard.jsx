@@ -2,14 +2,15 @@ import User from "./User";
 
 const UserCard = ({ title }) => (
   <div>
-    <h3 className="text-xl font-bold text-gray-800 mb-6">{title}</h3>
+    <h3 className="demo-title">{title}</h3>
+    <hr className="demo-divider" />
     <User>
       {(user) =>
         user && (
-          <div className="w-1/3 bg-gray-200 rounded">
-            <img alt={user.name} src={user.imgPath} className="rounded-t" />
-            <div className="p-4">
-              <h3 className="text-lg font-bold text-gray-800">
+          <div className="user-card">
+            <img alt={user.name} src={user.imgPath} className="user-card-image" />
+            <div className="user-card-body">
+              <h3 className="user-card-name">
                 {user.name} ({user.username})
               </h3>
               <p>

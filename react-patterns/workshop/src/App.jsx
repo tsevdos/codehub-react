@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
 // Demos
 // SSC
 import CharactersList from "./examples/SSC/01/CharactersList";
@@ -30,11 +31,11 @@ import CCApp4 from "./examples/CC/04/App";
 const App = () => (
   <Router>
     <Header />
-    <div className="grid grid-cols-12">
+    <div className="app-layout">
       <Sidebar />
-      <main className="col-span-9 py-6">
+      <main className="main-content">
         <Routes>
-          <Route path="/" element={<h1>Demos</h1>} />
+          <Route path="/" element={<Home />} />
           {/* SSC */}
           <Route path="/ssc/1" element={<CharactersList />} />
           <Route path="/ssc/2" element={<CharactersListContainer />} />

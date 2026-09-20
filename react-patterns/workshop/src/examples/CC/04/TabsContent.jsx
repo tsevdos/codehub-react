@@ -1,9 +1,6 @@
 const TabsContent = ({ index, content, isVisible }) => {
   return (
-    <article
-      id={`content-${index}`}
-      className={`tab-content ${isVisible ? "is-visible" : ""}`}
-    >
+    <article id={`content-${index}`} className={`tab-content ${isVisible ? "is-visible" : ""}`}>
       {content}
     </article>
   );

@@ -14,7 +14,9 @@ const Tabs = ({ selectedTab = 0, onSelectTab, children }) => {
   }));
   const onTabSelect = (index) => {
     setActiveTab(index);
-    onSelectTab && onSelectTab(index);
+    if (onSelectTab) {
+      onSelectTab(index);
+    }
   };
 
   return (

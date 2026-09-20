@@ -13,30 +13,13 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-800">
-        CC 02: Component composition
-      </h1>
-      <hr className="my-3" />
+      <h1 className="demo-title">CC 02: Component composition</h1>
+      <hr className="demo-divider" />
       <Tabs>
         <TabHeader>
-          <TabsNavItem
-            index={1}
-            title="Tab 1"
-            isActive={activeTab === 1}
-            onSelectTab={onSelectTab}
-          />
-          <TabsNavItem
-            index={2}
-            title="Tab 2"
-            isActive={activeTab === 2}
-            onSelectTab={onSelectTab}
-          />
-          <TabsNavItem
-            index={3}
-            title="Tab 3"
-            isActive={activeTab === 3}
-            onSelectTab={onSelectTab}
-          />
+          <TabsNavItem index={1} title="Tab 1" isActive={activeTab === 1} onSelectTab={onSelectTab} />
+          <TabsNavItem index={2} title="Tab 2" isActive={activeTab === 2} onSelectTab={onSelectTab} />
+          <TabsNavItem index={3} title="Tab 3" isActive={activeTab === 3} onSelectTab={onSelectTab} />
         </TabHeader>
         <TabContainer>
           <TabsContent index={1} isVisible={activeTab === 1}>

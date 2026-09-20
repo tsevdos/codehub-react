@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
 
 const Header = () => (
-  <header className="bg-gray-800 px-6 py-6">
-    <nav>
+  <header className={styles.header}>
+    <nav className={styles.nav}>
       <div>
-        <Link to="/" className="text-white text-2xl font-semibold">
+        <Link to="/" className={styles.brand}>
           React Patterns Demo
         </Link>
       </div>

@@ -2,38 +2,26 @@ import Tabs from "./Tabs";
 
 const tabsEntries = [
   {
-    title: "Tab 1",
-    content: (
-      <>
-        <h2>First Tab</h2>
-        <p>My first tab content</p>
-      </>
-    ),
+    tabTitle: "Tab 1",
+    title: "First Tab",
+    content: "My first tab content",
   },
   {
-    title: "Tab 2",
-    content: (
-      <>
-        <h2>Second Tab</h2>
-        <p>My second tab content</p>
-      </>
-    ),
+    tabTitle: "Tab 2",
+    title: "Second Tab",
+    content: "My second tab content",
   },
   {
-    title: "Tab 3",
-    content: (
-      <>
-        <h2>Third Tab</h2>
-        <p>My third tab content</p>
-      </>
-    ),
+    tabTitle: "Tab 3",
+    title: "Third Tab",
+    content: "My third tab content",
   },
 ];
 
 const App = () => (
   <div>
-    <h1 className="text-2xl font-bold text-gray-800">CC 01: Starting point</h1>
-    <hr className="my-3" />
+    <h1 className="demo-title">CC 01: Starting point</h1>
+    <hr className="demo-divider" />
     <Tabs tabs={tabsEntries} />
   </div>
 );

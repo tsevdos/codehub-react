@@ -2,10 +2,8 @@ import Tabs from "./Tabs";
 
 const App = () => (
   <div>
-    <h1 className="text-2xl font-bold text-gray-800">
-      CC 03: Compound components
-    </h1>
-    <hr className="my-3" />
+    <h1 className="demo-title">CC 03: Compound components</h1>
+    <hr className="demo-divider" />
     <Tabs>
       <Tabs.TabPane title="Tab 1">
         <h2>First Tab</h2>

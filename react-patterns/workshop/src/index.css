@@ -1,52 +1,221 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
-html { 
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #172b3a;
+  background: #f4f7f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #172b3a;
+  --muted: #61737d;
+  --surface: #ffffff;
+  --surface-muted: #eaf1ef;
+  --line: #d6e2df;
+  --brand: #087f8c;
+  --brand-dark: #075b66;
+  --accent: #e56b4e;
+  --shadow: 0 12px 30px rgb(23 43 58 / 8%);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: #f0f2f5;
+  background: #f4f7f6;
 }
 
-/* Conpound component classes */
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid rgb(229 107 78 / 55%);
+  outline-offset: 3px;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr);
+  width: min(100% - 2rem, 90rem);
+  max-width: 100%;
+  min-height: calc(100vh - 9.5rem);
+  margin: 0 auto;
+}
+
+.main-content {
+  min-width: 0;
+  padding: 3rem 2rem 4rem;
+}
+
+.demo-page {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.demo-title {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.65rem, 2vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.demo-divider {
+  height: 1px;
+  margin: 1.25rem 0;
+  border: 0;
+  background: var(--line);
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.character-card {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.character-name,
+.user-card-name {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.character-details {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.user-card {
+  width: min(100%, 24rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.user-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.user-card-body {
+  padding: 1.25rem;
+}
+
 .tabs {
-  width: 80%;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.tab-nav {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-muted);
 }
 
 .tab-nav-item {
-  display: inline-block;
-  font-size: 1.6rem;
-  font-weight: bold;
-  line-height: 1;
-  padding: 1rem;
-  border-radius: 5px;
-  background: #fff;
-  color: #001529;
+  flex: 0 0 auto;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
 }
 
+.tab-nav-item:hover,
 .tab-nav-item.active {
-  background: #001529;
-  color: #fff;
+  color: var(--brand-dark);
+  background: var(--surface);
 }
 
 .tab-content {
   display: none;
-  padding: 1rem;
-  font-size: 1.4rem;
-}
-
-.tab-content h2 {
-  font-size: 2rem;
-  font-weight: bold;
+  padding: 1.5rem;
 }
 
 .tab-content.is-visible {
   display: block;
+  animation: reveal 180ms ease-out;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .app-layout {
+    display: block;
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .demo-title {
+    font-size: 1.65rem;
+  }
 }

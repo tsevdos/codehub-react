@@ -1,0 +1,18 @@
+.loader {
+  display: grid;
+  place-items: center;
+  min-height: 8rem;
+  color: var(--brand);
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

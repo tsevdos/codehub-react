@@ -4,7 +4,9 @@ const useCharacters = ({ url, resource, format }) => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetch(`${url}/${resource}?format=${format}`)
+    fetch(`${url}/${resource}`, {
+      headers: { Accept: `application/${format}` },
+    })
       .then((res) => res.json())
       .then((data) => {
         setCharacters(data);

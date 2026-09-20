@@ -12,11 +12,11 @@ const Tabs = ({ tabs }) => {
     <section className="tabs">
       <nav className="tab-nav">
         {tabs.length &&
-          tabs.map(({ title }, index) => (
+          tabs.map(({ tabTitle }, index) => (
             <TabsNavItem
               key={index}
               index={index}
-              title={title}
+              title={tabTitle}
               isActive={activeTab === index}
               onSelectTab={onSelectTab}
             />
@@ -24,13 +24,8 @@ const Tabs = ({ tabs }) => {
       </nav>
       <section id="content">
         {tabs.length &&
-          tabs.map(({ content }, index) => (
-            <TabsContent
-              key={index}
-              index={index}
-              content={content}
-              isVisible={activeTab === index}
-            />
+          tabs.map(({ title, content }, index) => (
+            <TabsContent key={index} index={index} title={title} content={content} isVisible={activeTab === index} />
           ))}
       </section>
     </section>

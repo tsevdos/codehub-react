@@ -7,10 +7,8 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-800">
-        CC 03: Compound components (more options, better API)
-      </h1>
-      <hr className="my-3" />
+      <h1 className="demo-title">CC 03: Compound components (more options, better API)</h1>
+      <hr className="demo-divider" />
 
       {/* remove props from <Tabs> component */}
       <Tabs selectedTab={1} onSelectTab={onSelectTab}>

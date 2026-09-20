@@ -12,12 +12,7 @@ const CharactersListContainer = () => {
       });
   }, []);
 
-  return (
-    <CharactersList
-      title="SSC 03: Stateful and stateless components"
-      characters={characters}
-    />
-  );
+  return <CharactersList title="SSC 03: Stateful and stateless components" characters={characters} />;
 };
 
 export default CharactersListContainer;
