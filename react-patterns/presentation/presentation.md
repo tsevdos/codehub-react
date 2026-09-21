@@ -1,6 +1,10 @@
 ---
 marp: true
-theme: uncover
+theme: default
+style: |
+  section {
+    font-size: 250%;
+  }
 ---
 
 # React Patterns
@@ -29,8 +33,8 @@ Feel free to interrupt me for:
 
 # Stateful and stateless components
 
-- presentational and container components
-- smart and dumb component
+- container and presentational components
+- smart and dumb components
 - seperation of concerns
 - easier to reuse
 - better structure
@@ -43,7 +47,7 @@ Feel free to interrupt me for:
 - are concerned with how things work
 - provide the data and behavior to stateless or other stateful components
 - call actions and provide these as callbacks to the stateless components
-- connect with stores (redux, mobx, etc.)
+- connect with stores (redux, zustand, etc.)
 
 ---
 
@@ -59,7 +63,7 @@ Feel free to interrupt me for:
 
 # Stateful and stateless components
 
-Examples.
+Examples
 
 ---
 
@@ -104,7 +108,7 @@ const Component = (props) => props.children();
 
 # Render props
 
-Examples.
+Examples
 
 ---
 
@@ -159,7 +163,7 @@ Custom hooks are a mechanism to reuse stateful logic (such as setting up a subsc
 
 # Custom hooks
 
-Examples.
+Examples
 
 ---
 
@@ -226,7 +230,7 @@ Compound components is a pattern where components are used together such that th
 
 # Compound components
 
-Examples.
+Examples
 
 ---
 
