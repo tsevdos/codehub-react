@@ -46,23 +46,11 @@ const SelectRadioButtonCheckbox = () => {
         <div className="option-list">
           <label className="option-row">
             <span>Male</span>
-            <input
-              type="radio"
-              name="gender"
-              value="male"
-              checked={gender === "male"}
-              onChange={changeGender}
-            />
+            <input type="radio" name="gender" value="male" checked={gender === "male"} onChange={changeGender} />
           </label>
           <label className="option-row">
             <span>Female</span>
-            <input
-              type="radio"
-              name="gender"
-              value="female"
-              checked={gender === "female"}
-              onChange={changeGender}
-            />
+            <input type="radio" name="gender" value="female" checked={gender === "female"} onChange={changeGender} />
           </label>
         </div>
       </div>
